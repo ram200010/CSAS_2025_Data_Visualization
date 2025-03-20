@@ -541,8 +541,99 @@ plt.show()
 ```
 
 
-
 ## Example 3: Multiple Plots with Basketball Data
+
+```{python}
+#| fig-align: center
+import matplotlib.pyplot as plt
+from nba_api.stats.endpoints import LeagueStandings
+
+# Fetch data for each season
+data_2023 = LeagueStandings(season='2022-23').get_data_frames()[0]
+data_2024 = LeagueStandings(season='2023-24').get_data_frames()[0]
+
+# Compute win percentages
+data_2023['WinPct'] = data_2023['WINS'] / (data_2023['WINS'] + data_2023['LOSSES'])
+data_2024['WinPct'] = data_2024['WINS'] / (data_2024['WINS'] + data_2024['LOSSES'])
+
+# Get top 5 teams for each season
+top_2023 = data_2023.nlargest(5, 'WinPct')
+top_2024 = data_2024.nlargest(5, 'WinPct')
+
+# Create side-by-side bar charts
+fig, axes = plt.subplots(1, 2, figsize=(8, 5))
+fig.suptitle("Top 5 NBA Teams by Win Percentage (Last Two Seasons)", fontsize=16, fontweight='bold')
+
+# Plot 2022-23 season
+axes[0].bar(top_2023['TeamName'], top_2023['WinPct'], color='skyblue')
+axes[0].set_title("Season 2022-23", fontsize=14)
+axes[0].set_xlabel("Team", fontsize=12)
+axes[0].set_ylabel("Win Percentage", fontsize=12)
+axes[0].set_ylim(0, 1)
+axes[0].tick_params(axis='x', rotation=30)
+
+# Plot 2023-24 season
+axes[1].bar(top_2024['TeamName'], top_2024['WinPct'], color='lightcoral')
+axes[1].set_title("Season 2023-24", fontsize=14)
+axes[1].set_xlabel("Team", fontsize=12)
+axes[1].set_ylabel("Win Percentage", fontsize=12)
+axes[1].set_ylim(0, 1)
+axes[1].tick_params(axis='x', rotation=30)
+
+# Adjust layout and show plot
+plt.tight_layout()  # Adjust for title spacing
+plt.show()
+
+
+```
+
+
+## Example 3: Multiple Plots in Basketball {.scrollable .smaller}
+
+```{python}
+#| fig-align: center
+#| echo: true
+import matplotlib.pyplot as plt
+from nba_api.stats.endpoints import LeagueStandings
+
+# Fetch data for each season
+data_2023 = LeagueStandings(season='2022-23').get_data_frames()[0]
+data_2024 = LeagueStandings(season='2023-24').get_data_frames()[0]
+
+# Compute win percentages
+data_2023['WinPct'] = data_2023['WINS'] / (data_2023['WINS'] + data_2023['LOSSES'])
+data_2024['WinPct'] = data_2024['WINS'] / (data_2024['WINS'] + data_2024['LOSSES'])
+
+# Get top 5 teams for each season
+top_2023 = data_2023.nlargest(5, 'WinPct')
+top_2024 = data_2024.nlargest(5, 'WinPct')
+
+# Create side-by-side bar charts
+fig, axes = plt.subplots(1, 2, figsize=(8, 5))
+fig.suptitle("Top 5 NBA Teams by Win Percentage (Last Two Seasons)", fontsize=16, fontweight='bold')
+
+# Plot 2022-23 season
+axes[0].bar(top_2023['TeamName'], top_2023['WinPct'], color='skyblue')
+axes[0].set_title("Season 2022-23", fontsize=14)
+axes[0].set_xlabel("Team", fontsize=12)
+axes[0].set_ylabel("Win Percentage", fontsize=12)
+axes[0].set_ylim(0, 1)
+axes[0].tick_params(axis='x', rotation=30)
+
+# Plot 2023-24 season
+axes[1].bar(top_2024['TeamName'], top_2024['WinPct'], color='lightcoral')
+axes[1].set_title("Season 2023-24", fontsize=14)
+axes[1].set_xlabel("Team", fontsize=12)
+axes[1].set_ylabel("Win Percentage", fontsize=12)
+axes[1].set_ylim(0, 1)
+axes[1].tick_params(axis='x', rotation=30)
+
+# Adjust layout and show plot
+plt.tight_layout()  # Adjust for title spacing
+plt.show()
+
+
+```
 
 
 # Advanced Examples
@@ -862,7 +953,7 @@ Themes can be used to quickly enhance readability, aesthetics, and consistency i
 - `dark_background` – High contrast for dark themes  
 
 
-# 
+
 
 # Thank You!
 
