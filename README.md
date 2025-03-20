@@ -1,7 +1,9 @@
 # CSAS 2025 - Introduction to Visualization
 
-Date: April 11, 2025
-Time: 3:40 - 4:50
+Date: April 11, 2025 
+
+Time: 3:40 - 4:50 
+
 Workshop Leader: [Rahul Manna](https://www.linkedin.com/in/rahul-manna-544590346/)
 
 
