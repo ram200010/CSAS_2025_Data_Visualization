@@ -1,0 +1,877 @@
+---
+title: Introduction to Data Visualization
+subtitle: Connecticut Sports Analystics Symposium 2025
+author: Rahul Manna
+date: 11 April 2025
+date-format: "MMMM D, YYYY, 3:40-4:50"
+institute: Department of Statistics | University of Connecticut
+format:
+    revealjs:
+        preview-links: true
+        theme: simple
+        ratio: '16:9'
+        slide-number: true
+    html:
+        output-file: web.html
+    
+css: style.css
+bibliography: refs.bib
+---
+
+
+# Why do we need to visualize data?
+
+
+## Humans Process Visuals Faster  
+- 90% of information transmitted to the brain is **visual**  
+- We process images **60,000x faster** than text
+- Example: A simple chart vs. a raw data table → Which is easier to interpret?
+
+::: {style="font-size: 60%;"}
+Source: @ifvp_brain_loves_pictures
+:::
+
+## Identifying Trends & Patterns  
+- Raw data can be overwhelming, but **visuals reveal insights**  
+- Easier to detect **correlations, outliers, and distributions**  
+- Example: A scatter plot of sales vs. marketing spend → Trends appear at a glance  
+
+
+## Better Decision-Making  
+- Helps businesses, researchers, and analysts make **data-driven decisions**  
+- Reduces bias by presenting **clear, objective insights**  
+- Example: Heatmaps in sports analytics → Where does a player score the most?  
+
+
+## Effective Storytelling   {.smaller}
+- Data alone doesn't engage people, **stories do**  
+- Visualization transforms numbers into **compelling narratives**  
+- Example: COVID-19 charts → How visualization helped communicate urgency globally 
+
+![](images/john_hopkins_covid.png){fig-align="center" width="80%"}
+
+::: {style="font-size: 60%;"}
+Source: @jhu_covid_map
+:::
+
+## In Sports
+
+- Enhances decision-making by optimizing strategies  
+- Identifies patterns and trends in player and team performance  
+- Supports injury prevention by tracking workload 
+
+Source @quickstart_sports_analytics
+
+## What Makes a Plot Good?  {.smaller}
+
+- **Clarity & Simplicity** → Avoid clutter, use clear labels.  
+- **Accuracy** → Represent data truthfully, avoid misleading scales.  
+- **Effective Use of Color** → Use contrast wisely, avoid red-green, and use colorblind-friendly palettes. 
+- **Right Chart Type** → Match the plot to the data.  
+- **Storytelling** → Every plot should highlight key insights.  
+- **Effective Use of Shapes & Line Styles** → Dotted lines for trends, different markers for categories.  
+- **Resolution & Scalability** → Ensure high DPI for presentations, vector formats for publications.  
+
+
+
+# Outline
+
+1. Visualization Packages in Python
+2. Matplotlib Basics
+3. Code Demo/Basic Examples
+4. Advanced Examples
+5. Other Packages
+
+
+## Python Plotting Packages {.smaller}
+#### Matplotlib (@matplotlib_2024)   {.smaller} 
+- Versatile and widely used for static, animated, and interactive plots  
+- Provides full control over plot customization  
+- Used for general-purpose plotting in sports analytics  
+
+#### Seaborn (@seaborn_2024) {.smaller} 
+- Built on Matplotlib with enhanced statistical visualization  
+- Ideal for exploring correlations, distributions, and trends  
+- Useful for analyzing player stats and team performance  
+
+#### Sportypy (@sportypy_2024) {.smaller} 
+- Designed specifically for sports analytics visualization  
+- Supports court, field, and pitch plotting for multiple sports  
+- Simplifies overlaying player tracking and event data
+
+## Python Plotting Packages {.smaller}
+#### Plotly (@plotly_python) {.smaller}  
+- Powerful for interactive and web-based visualizations  
+- Supports zooming, hovering, and dynamic updates  
+- Ideal for real-time data analysis and dashboards  
+
+#### Plotnine (@plotnine) {.smaller}  
+- Python’s implementation of the **ggplot2** grammar of graphics  
+- Uses a layered approach for building plots  
+- Ideal for creating complex visualizations with minimal code  
+
+#### Altair (@altair_viz) {.smaller}  
+- Declarative and user-friendly syntax for statistical plots  
+- Built on **Vega-Lite**, optimized for simplicity  
+- Great for visualizing structured data and trends  
+
+# 
+:::: {columns}
+::: {.column style="font-size: 250%;"}
+
+<br />
+
+**Matplotlib**
+:::
+::: {.column width="50%" .center}
+![](images/matplotlib_logo.png){width='80%' fig-align="center"}
+:::
+::::
+
+## Matplotlib {.smaller}
+ 
+:::: {.columns}
+
+::: {.column width='60%'}
+ - Developed by neurobiologist John D. Hunter in 2003 as a tool for scientific computing in Python.
+
+ <br />
+
+ - Initially aimed at providing MATLAB-like plotting capabilities.
+
+  <br />
+
+ - Has evolved into one of the most widely-used plotting libraries and the foundational plotting package in Python.
+:::
+
+::: {.column width='40%'}
+
+ ![Dr. John Hunter; Image courtesy of @hunter_memorial](images/john_hunter.jpg){fig-align="center" }
+:::
+
+::::
+
+## Matplotlib
+::: {.callout-tip}
+
+### Fun Fact
+
+- Matplotlib was used by NASA for data visualization during the 2008 landing of the Phoenix spacecraft on Mars.
+- In 2018, `matplotlib` was one of the packages used to generate the first image of a black hole by the Event Horizon Telescope team.
+
+![](images/blackhole.jpg){width="45%" fig-align="center"}
+:::
+
+::: {style="font-size: 60%;"}
+Source: @matplotlib_2024
+:::
+## Pros and Cons of Matplotlib {.smaller}
+
+#### Strengths  
+- Highly **customizable** for fine-tuned visualizations.  
+- Works well with **NumPy, Pandas, and SciPy**.  
+- Supports multiple output formats (PNG, PDF, SVG, etc.).  
+- **Good for static plots** and publication-quality figures.  
+- Large community and extensive documentation.  
+
+#### Weaknesses  
+- **Verbosity** – Requires more code compared to modern libraries (e.g., Seaborn, Plotly).  
+- **Limited interactivity** – Not ideal for interactive dashboards.  
+- **Complexity** – Advanced customization can be tricky.  
+- **Performance issues** – Slower for large datasets compared to specialized libraries.  
+
+## Installation 
+
+Latest available version is 3.10
+
+#### Using pip (Recommended)  
+```{.python}
+pip install matplotlib
+```
+
+<br />
+
+#### Using conda - Anaconda/Miniconda 
+
+```{.python}
+conda install matplotlib
+```
+<br />
+
+
+#### Import Matplotlib
+```{.python}
+import matplotlib.pyplot as plt
+```
+
+## Parts of a Figure {.smaller}
+
+:::: {.columns}
+
+::: {.column width='45%'}
+- **Figure**: The entire canvas.  
+- **Axes**: The main plotting area.  
+- **Axis**: The x-axis and y-axis.  
+- **Ticks & Labels**: Marks and text on axes.  
+- **Legend**: Explains colors, lines, or markers.  
+- **Title & Labels**: Describe the plot and axes.  
+- **Grid**: Optional background lines.
+:::
+
+::: {.column width='55%'}
+
+![Image courtesy of @matplotlib_2024](images/anatomy.webp)
+:::
+::::
+
+
+## Basic Plotting Commands {.smaller}
+
+```{.python}
+import matplotlib.pyplot as plt
+```
+
+- `plt.plot(x, y)` → Line plot
+    - `color`, `linestyle`, `marker`, `label`, `alpha`, `linewidth`
+- `plt.scatter(x, y)` → Scatter plot 
+    - `color`, `marker`, `s` (marker size), `c` (marker color), `alpha`
+- `plt.bar(x, y)` → Bar chart
+    - `height`, `width`, `color`, `align`
+
+- `plt.hist(data, bins=10)` → Histogram 
+     - `bins`, `range`, `density`, `color`, `alpha`
+
+- `plt.pie(sizes, labels=labels)` → Pie chart  
+    - `sizes`, `labels`, `colors`, `startangle`, `autopct`  
+
+
+## Customization Commands {.smaller}
+
+- `plt.xlabel("X-axis Label")`, `plt.ylabel("Y-axis Label")` → Axis labels
+    - `label`, `fontsize`, `color`
+- `plt.title("Plot Title")` → Title
+    - `left`, `right`, `bottom`, `top`
+- `plt.xlim(min, max)`, `plt.ylim(min, max)` → Axis limits
+    - `left`, `right`, `bottom`, `top`
+- `plt.xticks(ticks, labels)`, `plt.yticks(ticks, labels)` → Custom tick labels
+    - `ticks`, `labels`
+- `plt.grid(True, linestyle='--')` → Add grid  
+    - `True/False`, `linestyle`, `linewidth`
+
+## Multiple Plots & Subplots {.smaller}
+
+- `plt.figure(figsize=(width, height))` → Create a new figure  
+- `plt.subplot(rows, cols, index)` → Create subplots  
+- `fig, ax = plt.subplots()` → Object-oriented subplot approach
+    -  `nrows`, `ncols`, `figsize`, `sharex`, `sharey`
+- `ax.plot(x, y)` → Plot using axes  
+
+
+## Saving & Displaying Plots {.smaller}
+
+- `plt.savefig("plot.png", dpi=300)` → Save figure as PNG
+    - `filename`, `dpi`, `format`
+- `plt.show()` → Display the plot  
+- `plt.close()` → Close the current figure  
+
+
+
+# Code Demo
+
+## Follow Along with Jupyter Notebooks
+
+Download files in the `demo` folder from Github repo available at [github.com/ram200010/CSAS_2025_Data_Visualization](https://github.com/ram200010/CSAS_2025_Data_Visualization)
+
+Link to GitHub Page for this workshop is also available on CSAS 2025 website.
+
+You can also clone the repository or download the zip-file for the entire repo. 
+
+
+
+## Example 1: Plotting a Function {.smaller}
+
+Let's plot the standard normal distribution $N(\mu=1,\sigma=1)$ pdf given below. 
+
+$$ f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-\mu)^2}{2\sigma^2}} = \frac{1}{\sqrt{2\pi}}e^{\frac{-x^2}{2}}$$
+
+```{python}
+#| fig-align: center
+import matplotlib.pyplot as plt
+import numpy as np
+
+def stand_norm(x):
+    return 1/np.sqrt(2*np.pi)*np.exp(-x**2/2)
+
+x = np.linspace(-4,4,1000) # range of x values in plot
+
+plt.figure(figsize=(6,4))
+plt.plot(x,stand_norm(x),label='$N(\mu=0,\sigma=1)$')
+plt.title('Standard Normal Distribution')
+plt.xlabel('x')
+plt.ylabel('Probability Density')
+plt.legend()
+
+
+x1 = np.linspace(1,4,1000)
+plt.fill_between(x1,0,stand_norm(x1),alpha=0.5)
+
+plt.show()
+```
+
+## Example 1: Plotting a Function { .scrollable}
+
+```{python}
+#| fig-align: center
+#| echo: true
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(-4,4,1000) # range of x values in plot
+
+def stand_norm(x):
+    return 1/np.sqrt(2*np.pi)*np.exp(-x**2/2)
+
+plt.plot(x,stand_norm(x),label='$N(\mu=0,\sigma=1)$')
+plt.title('Standard Normal Distribution')
+plt.xlabel('x')
+plt.ylabel('Probability Density')
+plt.legend()
+
+x1 = np.linspace(1,4,1000)
+plt.fill_between(x1,0,stand_norm(x1),alpha=0.5)
+
+plt.show()
+```
+
+
+## Example 2: An example from baseball {.smaller}
+
+
+:::: {.columns}
+::: {.column width='60%'}
+
+Area over home plate is divided into a a grid for pitch analysis. 
+
+This grid helps analyze pitch effectiveness, swing decisions, and strike zone control.    
+
+- **Heart Zone**: Middle of the strike zone, where hitters make solid contact.  
+- **Strike Zone**: The legal strike area from the batter’s knees to the midpoint of their torso.  
+- **Shadow Zone**: Just outside the strike zone, where borderline calls happen.  
+- **Chase Zone**: Further outside, where batters often chase bad pitches.  
+- **Waste Zone**: Well outside the plate, used for setting up hitters or avoiding damage.  
+
+
+:::
+::: {.column width='40%'}
+![](images/baseball_batter_zones.jpg_large){fig-align="center"}
+:::
+::::
+
+## Baseball Savant   {.smaller} 
+Hosted by MLB, Baseball Savant provides advanced analytics and visualizations using Statcast data.
+
+A go-to resource for analysts, coaches, and fans to explore performance beyond traditional stats.
+
+**Key Features**  
+
+- Statcast tracking for pitches, batted balls, and player movement  
+- Downloadable CSV files with pitch velocity, spin rate, exit velocity, launch angle, and more  
+- Interactive visualizations like spray charts, heat maps, and pitch tunnels  
+- Leaderboards for hitters, pitchers, and fielders based on advanced metrics  
+- Useful for player comparisons, scouting, and trend analysis  
+
+![](images/baseball_zones.png)
+
+(Source: @baseballsavant_statcast_search)
+
+## Aaron Judge's Statcast Data {.smaller}
+
+:::: {.columns}
+::: {.column}
+Star outfielder for the New York Yankees, known for his power hitting and elite defense.  
+
+**Key Stats & Achievements**  
+
+- 2024 & 2022 American League Most Valuable Player
+- Multiple-time All-Star and Silver Slugger winner  
+- Career HR leader among active Yankees  
+- Known for exceptional exit velocity and plate discipline  
+:::
+::: {.column .center}
+![Image courtesy of @aaron_judge_bio](images/aaron-judge.avif){width="60%"}
+:::
+::::
+
+## Scatter Plot of Hit Locations
+
+```{python}
+#| fig-align: center
+import pandas as pd
+
+data = pd.read_csv('data/aaron_judge2024.csv')
+plt.figure(figsize=(9,7))
+
+
+plt.scatter(data['plate_x'],data['plate_z'])
+plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
+plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
+plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
+plt.legend(ncols=2)
+plt.show()
+```
+
+
+## Scatter Plot of Hit Locations {.scrollable}
+
+
+```{python}
+#| fig-align: center
+#| echo: true
+import pandas as pd
+
+data = pd.read_csv('data/aaron_judge2024.csv')
+
+plt.figure(figsize=(9,7))
+
+plt.scatter(data['plate_x'],data['plate_z'])
+
+plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
+plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
+plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
+plt.legend(ncols=2)
+plt.show()
+```
+
+
+## Hit Location Colored by Exit Velocity
+```{python}
+#| fig-align: center
+import pandas as pd
+data = pd.read_csv('data/aaron_judge2024.csv')
+
+plt.figure(figsize=(9,7))
+plt.scatter(data['plate_x'],data['plate_z'],c=data['launch_speed'],cmap='plasma')
+plt.colorbar(label='Launch Speed (mph)')
+plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
+plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
+plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
+plt.xlim(-1.5,1.5)
+plt.show()
+```
+
+
+## Hit Location Colored by Exit Velocity {.scrollable}
+
+
+
+```{python}
+#| fig-align: center
+#| echo: true
+import pandas as pd
+data = pd.read_csv('data/aaron_judge2024.csv')
+
+plt.figure(figsize=(9,7))
+
+plt.scatter(data['plate_x'],data['plate_z'],c=data['launch_speed'],cmap='plasma')
+plt.colorbar(label='Launch Speed (mph)')
+plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
+plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
+plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
+plt.xlim(-1.5,1.5)
+plt.show()
+```
+
+## Aaron Judge's Hit Locations by Zone{.smaller}
+
+:::: {.columns}
+::: {.column width='30%'}
+
+<br />
+
+<br />
+
+![](images/baseball_zones.png){fig-align="center" width="100%"}
+:::
+::: {.column width='70%'}
+```{python}
+#| fig-align: center
+import pandas as pd
+
+data = pd.read_csv('data/aaron_judge2024.csv')
+data['in_zone'] = data['zone'].apply(lambda x: f'Zone: {str(int(x))}' if x in range(0,10) else 'Out of Zone')
+
+plt.figure(figsize=(8,6))
+
+for category, group in data.groupby('in_zone'):
+    plt.scatter(group['plate_x'],group['plate_z'],label=category)
+
+
+plt.title('Aaron Judge Pitch Positions Over Home Plate',weight='bold',fontsize=16)
+plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=12)
+plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=12)
+plt.legend(ncols=2)
+plt.show()
+```
+:::
+::::
+## Ball Hit Location by Zone {.smaller .scrollable}
+
+
+
+```{python}
+#| fig-align: center
+#| echo: true
+import pandas as pd
+
+data = pd.read_csv('data/aaron_judge2024.csv')
+data['in_zone'] = data['zone'].apply(lambda x: f'Zone: {str(int(x))}' if x in range(0,10) else 'Out of Zone')
+
+plt.figure(figsize=(9,7))
+
+for category, group in data.groupby('in_zone'):
+    plt.scatter(group['plate_x'],group['plate_z'],label=category)
+
+
+plt.title('Aaron Judge Hit Locations Over Home Plate',weight='bold',fontsize=18)
+plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
+plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
+plt.legend(ncols=2)
+plt.show()
+```
+
+
+
+## Example 3: Multiple Plots with Basketball Data
+
+
+# Advanced Examples
+
+## Advanced Example: Spray Chart {.scrollable .smaller}
+
+Sportypy is a python package built on matplotlib to add courts and fields to sports visualizations.
+
+
+```{python}
+#| fig-align: center
+import pandas as pd
+from sportypy.surfaces.baseball import MLBField
+
+data = pd.read_csv('data/aaron_judge2024.csv')
+
+data = data.groupby('events')
+
+fig, ax = plt.subplots(figsize=(8,6))
+
+field = MLBField(x_trans=130,y_trans=-213,rotation=180)
+
+field.draw(ax,xlim=(0,250))
+
+for i in data.groups.keys():
+    
+    hcx = data.get_group(i)['hc_x']
+    hcy = -1*data.get_group(i)['hc_y']
+
+    if i in ['home_run','double','triple','walk','single']:
+        label = ' '.join([x.capitalize() for x in i.split('_')])
+        field.scatter(hcx,hcy,label=label,linewidths=1,edgecolor='black',s=60)
+
+plt.ylim(-240,20)
+
+plt.legend(ncols=3,prop={'weight':'bold','size':'medium'},loc='lower center')
+plt.title('Aaron Judge Hit Locations - 2024 MLB Season',weight='bold',fontsize=14)
+plt.show()
+```
+
+
+## Advanced Example: Spray Chart {.scrollable .smaller}
+
+```{python}
+#| fig-align: center
+#| echo: true
+import pandas as pd
+from sportypy.surfaces.baseball import MLBField
+
+data = pd.read_csv('data/aaron_judge2024.csv')
+
+data = data.groupby('events')
+
+fig, ax = plt.subplots(figsize=(8,8))
+
+field = MLBField(x_trans=130,y_trans=-213,rotation=180)
+
+field.draw(ax,xlim=(0,250))
+
+for i in data.groups.keys():
+    
+    hcx = data.get_group(i)['hc_x']
+    hcy = -1*data.get_group(i)['hc_y']
+
+    if i in ['home_run','double','triple','walk','single']:
+        label = ' '.join([x.capitalize() for x in i.split('_')])
+        field.scatter(hcx,hcy,label=label,linewidths=1,edgecolor='black',s=60)
+
+plt.ylim(-250,20)
+
+plt.legend(ncols=3,prop={'weight':'bold','size':'medium'},loc='lower center')
+plt.title('Aaron Judge Hit Locations - 2024 MLB Season',weight='bold',fontsize=14)
+plt.show()
+```
+
+## Adding Player Headshot to a Plot {.smaller .scrollable}
+
+
+```{python}
+#| fig-align: center
+#| echo: true
+import PIL.Image
+import matplotlib.patches as patches
+
+data = pd.read_csv('data/aaron_judge2024.csv')
+
+data = data.groupby('events')
+
+fig, ax = plt.subplots(figsize=(8,8))
+
+field = MLBField(x_trans=130,y_trans=-213,rotation=180)
+
+field.draw(ax,xlim=(0,250))
+
+
+for i in data.groups.keys():
+    
+    hcx = data.get_group(i)['hc_x']
+    hcy = -1*data.get_group(i)['hc_y']
+
+    if i in ['home_run','double','triple','walk','single']:
+        label = ' '.join([x.capitalize() for x in i.split('_')])
+        field.scatter(hcx,hcy,label=label,linewidths=1,edgecolor='black',s=60)
+
+
+plt.ylim(-250,20)
+
+# Add Headshot
+headshot = PIL.Image.open('images/aaron_judge headshot.png')
+
+plt.imshow(headshot,extent=(82,127,-43,17))
+rect = patches.Rectangle((82, -43), 45, 60, linewidth=3, edgecolor='#003366', facecolor='none')
+ax.add_patch(rect)
+
+plt.legend(ncols=3,prop={'weight':'bold','size':'medium'},loc='lower center')
+plt.title('Aaron Judge Hit Locations - 2024 MLB Season',weight='bold',fontsize=14)
+plt.show()
+```
+
+
+
+
+## Advanced Example: Basketball Heatmap {.smaller}
+
+
+
+:::: {.columns}
+::: {.column width='40%'}
+#### NBA API (Unofficial)  {.smaller}
+- Community-maintained API for accessing NBA stats  
+- Provides box scores, player stats, game logs, and shot charts  
+- Available through Python packages like `nba_api`
+
+::::: {style='font-size: 60%;'}
+(Source: @nba_api_documentation)
+:::::
+:::
+::: {.column width='60%'}
+```{python}
+#| fig-align: center
+from nba_api.stats.endpoints import shotchartdetail
+from matplotlib.patches import Circle, Rectangle, Arc
+
+lebron_data = shotchartdetail.ShotChartDetail(team_id = 0, player_id=2544,season_type_all_star="Regular Season",season_nullable="2023-24",context_measure_simple = 'FGA').get_data_frames()[0]
+
+fig, ax = plt.subplots(figsize=(7.5,7.5))
+
+
+def draw_court(ax=None, color='black', lw=2, outer_lines=False):
+
+    if ax is None:
+        ax = plt.gca()
+
+    hoop = Circle((0, 0), radius=7.5, linewidth=lw, color=color, fill=False)
+
+    backboard = Rectangle((-30, -7.5), 60, -1, linewidth=lw, color=color)
+
+    outer_box = Rectangle((-80, -47.5), 160, 190, linewidth=lw, color=color,fill=False)
+    
+    inner_box = Rectangle((-60, -47.5), 120, 190, linewidth=lw, color=color,fill=False)
+
+    # Create free throw top arc
+    top_free_throw = Arc((0, 142.5), 120, 120, theta1=0, theta2=180,
+                         linewidth=lw, color=color, fill=False)
+    # Create free throw bottom arc
+    bottom_free_throw = Arc((0, 142.5), 120, 120, theta1=180, theta2=0,
+                            linewidth=lw, color=color, linestyle='dashed')
+    # Restricted Zone, it is an arc with 4ft radius from center of the hoop
+    restricted = Arc((0, 0), 80, 80, theta1=0, theta2=180, linewidth=lw,
+                     color=color)
+
+    # Three point line
+    # Create the side 3pt lines, they are 14ft long before they begin to arc
+    corner_three_a = Rectangle((-220, -47.5), 0, 140, linewidth=lw,color=color)
+    corner_three_b = Rectangle((220, -47.5), 0, 140, linewidth=lw, color=color)
+    # 3pt arc - center of arc will be the hoop, arc is 23'9" away from hoop
+    three_arc = Arc((0, 0), 475, 475, theta1=22, theta2=158, linewidth=lw,color=color)
+
+    center_outer_arc = Arc((0, 422.5), 120, 120, theta1=180, theta2=0,linewidth=lw, color=color)
+    center_inner_arc = Arc((0, 422.5), 40, 40, theta1=180, theta2=0,linewidth=lw, color=color)
+    court_elements = [hoop, backboard, outer_box, inner_box, top_free_throw,
+                      bottom_free_throw, restricted, corner_three_a,
+                      corner_three_b, three_arc, center_outer_arc,
+                      center_inner_arc]
+
+    if outer_lines:
+        outer_lines = Rectangle((-250, -47.5), 500, 470, linewidth=lw,color=color, fill=False)
+        court_elements.append(outer_lines)
+
+    for element in court_elements:
+        ax.add_patch(element)
+
+    return ax
+
+draw_court(ax)
+
+grouped = lebron_data.groupby(['EVENT_TYPE'])
+made = grouped.get_group('Made Shot')
+miss = grouped.get_group('Missed Shot')
+ax.scatter(miss['LOC_X'],miss['LOC_Y'],label='Miss',marker='x',color='tab:orange',s=30)
+ax.scatter(made['LOC_X'],made['LOC_Y'],label='Made',color='none',edgecolor='tab:blue',linewidths=1,s=30)
+plt.ylim(422.5, -47.5)
+plt.xlim(-250,250)
+plt.title('Lebron James Shot Charts - 2023-24 Season')
+ax.xaxis.set_tick_params(labelbottom=False)
+ax.yaxis.set_tick_params(labelleft=False)
+ax.set_xticks([])
+ax.set_yticks([])
+plt.legend()
+plt.show()
+```
+:::
+::::
+
+## Advanced Example: Basketball Heatmap {.smaller .scrollable}
+
+```{python}
+#| fig-align: center
+#| echo: true
+from nba_api.stats.endpoints import shotchartdetail
+from matplotlib.patches import Circle, Rectangle, Arc
+
+lebron_data = shotchartdetail.ShotChartDetail(team_id = 0, player_id=2544,season_type_all_star="Regular Season",season_nullable="2023-24",context_measure_simple = 'FGA').get_data_frames()[0]
+
+fig, ax = plt.subplots(figsize=(7.5,7.5))
+
+
+def draw_court(ax=None, color='black', lw=2, outer_lines=False):
+
+    if ax is None:
+        ax = plt.gca()
+
+    hoop = Circle((0, 0), radius=7.5, linewidth=lw, color=color, fill=False)
+
+    backboard = Rectangle((-30, -7.5), 60, -1, linewidth=lw, color=color)
+
+    outer_box = Rectangle((-80, -47.5), 160, 190, linewidth=lw, color=color,fill=False)
+    
+    inner_box = Rectangle((-60, -47.5), 120, 190, linewidth=lw, color=color,fill=False)
+
+    # Create free throw top arc
+    top_free_throw = Arc((0, 142.5), 120, 120, theta1=0, theta2=180,
+                         linewidth=lw, color=color, fill=False)
+    # Create free throw bottom arc
+    bottom_free_throw = Arc((0, 142.5), 120, 120, theta1=180, theta2=0,
+                            linewidth=lw, color=color, linestyle='dashed')
+    # Restricted Zone, it is an arc with 4ft radius from center of the hoop
+    restricted = Arc((0, 0), 80, 80, theta1=0, theta2=180, linewidth=lw,
+                     color=color)
+
+    # Three point line
+    # Create the side 3pt lines, they are 14ft long before they begin to arc
+    corner_three_a = Rectangle((-220, -47.5), 0, 140, linewidth=lw,color=color)
+    corner_three_b = Rectangle((220, -47.5), 0, 140, linewidth=lw, color=color)
+    
+    three_arc = Arc((0, 0), 475, 475, theta1=22, theta2=158, linewidth=lw,color=color)
+
+    center_outer_arc = Arc((0, 422.5), 120, 120, theta1=180, theta2=0,linewidth=lw, color=color)
+    center_inner_arc = Arc((0, 422.5), 40, 40, theta1=180, theta2=0,linewidth=lw, color=color)
+    court_elements = [hoop, backboard, outer_box, inner_box, top_free_throw,
+                      bottom_free_throw, restricted, corner_three_a,
+                      corner_three_b, three_arc, center_outer_arc,
+                      center_inner_arc]
+
+    if outer_lines:
+        outer_lines = Rectangle((-250, -47.5), 500, 470, linewidth=lw,color=color, fill=False)
+        court_elements.append(outer_lines)
+
+    for element in court_elements:
+        ax.add_patch(element)
+
+    return ax
+
+draw_court(ax)
+
+grouped = lebron_data.groupby(['EVENT_TYPE'])
+made = grouped.get_group('Made Shot')
+miss = grouped.get_group('Missed Shot')
+ax.scatter(miss['LOC_X'],miss['LOC_Y'],label='Miss',marker='x',color='tab:orange',s=30)
+ax.scatter(made['LOC_X'],made['LOC_Y'],label='Made',color='none',edgecolor='tab:blue',linewidths=1,s=30)
+plt.ylim(422.5, -47.5)
+plt.xlim(-250,250)
+plt.title('Lebron James Shot Charts - 2023-24 Season')
+ax.xaxis.set_tick_params(labelbottom=False)
+ax.yaxis.set_tick_params(labelleft=False)
+
+ax.set_xticks([])
+ax.set_yticks([])
+plt.legend()
+plt.show()
+```
+
+::: {style="font-size: 60%;"}
+(Source: @tjortjoglou_nba_shot_charts) 
+:::
+
+
+
+
+## Matplotlib Style Sheets {.smaller}
+
+Predefined themes in Matplotlib that adjust colors, fonts, and layouts for consistent visualization.
+
+Themes can be used to quickly enhance readability, aesthetics, and consistency in plots.  
+
+**Using a Style Sheet**  
+
+- `plt.style.available` → Lists all available styles
+- `plt.style.use('ggplot')` → Applies the *ggplot* style  
+- `with plt.style.context('seaborn-darkgrid'):` → Temporary style change  
+
+**Popular Styles**  
+
+- `ggplot` – Inspired by R’s ggplot2, uses soft colors and grid  
+- `seaborn` – Matches Seaborn’s default styling  
+- `fivethirtyeight` – Mimics FiveThirtyEight’s visual style  
+- `dark_background` – High contrast for dark themes  
+
+
+# 
+
+# Thank You!
+
+Questions?
+
+
+
+## References
+
+::: {#refs}
+
+:::
