@@ -18,6 +18,21 @@ css: style.css
 bibliography: refs.bib
 ---
 
+## About Me
+
+- Junior at the University of Connecticut 🎓
+
+- Pursuing a Dual Degree in Statistical Data Science and Mechanical Engineering 🔢⚙️
+
+- Formula One Fan 🏎️💨 
+
+# Outline
+
+1. Importance of Data Visualization
+2. Visualization Packages in Python
+3. Matplotlib Basics
+4. Code Demo/Basic Examples
+5. Advanced Examples
 
 # Why do we need to visualize data?
 
@@ -73,14 +88,6 @@ Source @quickstart_sports_analytics
 - **Resolution & Scalability** → Ensure high DPI for presentations, vector formats for publications.  
 
 
-
-# Outline
-
-1. Visualization Packages in Python
-2. Matplotlib Basics
-3. Code Demo/Basic Examples
-4. Advanced Examples
-5. Other Packages
 
 
 ## Python Plotting Packages {.smaller}
@@ -257,6 +264,8 @@ import matplotlib.pyplot as plt
     - `ticks`, `labels`
 - `plt.grid(True, linestyle='--')` → Add grid  
     - `True/False`, `linestyle`, `linewidth`
+- `plt.legend()` → Add legend
+    - loc, fontsize, title, frameon, bbox_to_anchor
 
 ## Multiple Plots & Subplots {.smaller}
 
@@ -405,21 +414,7 @@ Star outfielder for the New York Yankees, known for his power hitting and elite 
 
 ## Scatter Plot of Hit Locations
 
-```{python}
-#| fig-align: center
-import pandas as pd
-
-data = pd.read_csv('data/aaron_judge2024.csv')
-plt.figure(figsize=(9,7))
-
-
-plt.scatter(data['plate_x'],data['plate_z'])
-plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
-plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
-plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
-plt.legend(ncols=2)
-plt.show()
-```
+![](images/aaron_judge_scatter.png){width="70%" fig-align="center"}
 
 
 ## Scatter Plot of Hit Locations {.scrollable}
@@ -428,9 +423,9 @@ plt.show()
 ```{python}
 #| fig-align: center
 #| echo: true
-import pandas as pd
+import pybaseball as pyball
 
-data = pd.read_csv('data/aaron_judge2024.csv')
+data = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)
 
 plt.figure(figsize=(9,7))
 
@@ -445,20 +440,8 @@ plt.show()
 
 
 ## Hit Location Colored by Exit Velocity
-```{python}
-#| fig-align: center
-import pandas as pd
-data = pd.read_csv('data/aaron_judge2024.csv')
 
-plt.figure(figsize=(9,7))
-plt.scatter(data['plate_x'],data['plate_z'],c=data['launch_speed'],cmap='plasma')
-plt.colorbar(label='Launch Speed (mph)')
-plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
-plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
-plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
-plt.xlim(-1.5,1.5)
-plt.show()
-```
+![](images/aaron_judge_scatter_exit_velocity.png){width="70%" fig-align="center"}
 
 
 ## Hit Location Colored by Exit Velocity {.scrollable}
@@ -468,8 +451,9 @@ plt.show()
 ```{python}
 #| fig-align: center
 #| echo: true
-import pandas as pd
-data = pd.read_csv('data/aaron_judge2024.csv')
+import pybaseball as pyball
+
+data = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)
 
 plt.figure(figsize=(9,7))
 
@@ -494,25 +478,10 @@ plt.show()
 ![](images/baseball_zones.png){fig-align="center" width="100%"}
 :::
 ::: {.column width='70%'}
-```{python}
-#| fig-align: center
-import pandas as pd
 
-data = pd.read_csv('data/aaron_judge2024.csv')
-data['in_zone'] = data['zone'].apply(lambda x: f'Zone: {str(int(x))}' if x in range(0,10) else 'Out of Zone')
-
-plt.figure(figsize=(8,6))
-
-for category, group in data.groupby('in_zone'):
-    plt.scatter(group['plate_x'],group['plate_z'],label=category)
+![](images/aaron_judge_scatter_zones.png){fig-align="center"}
 
 
-plt.title('Aaron Judge Pitch Positions Over Home Plate',weight='bold',fontsize=16)
-plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=12)
-plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=12)
-plt.legend(ncols=2)
-plt.show()
-```
 :::
 ::::
 ## Ball Hit Location by Zone {.smaller .scrollable}
@@ -522,9 +491,10 @@ plt.show()
 ```{python}
 #| fig-align: center
 #| echo: true
-import pandas as pd
+import pybaseball as pyball
 
-data = pd.read_csv('data/aaron_judge2024.csv')
+data = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)
+
 data['in_zone'] = data['zone'].apply(lambda x: f'Zone: {str(int(x))}' if x in range(0,10) else 'Out of Zone')
 
 plt.figure(figsize=(9,7))
@@ -645,10 +615,9 @@ Sportypy is a python package built on matplotlib to add courts and fields to spo
 
 ```{python}
 #| fig-align: center
-import pandas as pd
 from sportypy.surfaces.baseball import MLBField
 
-data = pd.read_csv('data/aaron_judge2024.csv')
+data = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)
 
 data = data.groupby('events')
 
@@ -680,10 +649,9 @@ plt.show()
 ```{python}
 #| fig-align: center
 #| echo: true
-import pandas as pd
 from sportypy.surfaces.baseball import MLBField
 
-data = pd.read_csv('data/aaron_judge2024.csv')
+data = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)
 
 data = data.groupby('events')
 
@@ -715,10 +683,11 @@ plt.show()
 ```{python}
 #| fig-align: center
 #| echo: true
+
 import PIL.Image
 import matplotlib.patches as patches
 
-data = pd.read_csv('data/aaron_judge2024.csv')
+data = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)
 
 data = data.groupby('events')
 
