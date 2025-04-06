@@ -26,62 +26,53 @@ bibliography: refs.bib
 
 - Formula One Fan 🏎️💨 
 
-# Outline
+# Outline {.smaller}
 
-1. Importance of Data Visualization
-2. Visualization Packages in Python
-3. Matplotlib Basics
-4. Code Demo/Basic Examples
-5. Advanced Examples
+1. Data Visualization (6 min)
+2. Visualization Packages in Python (5 min)
+3. Matplotlib Basics (8 min)
+4. Code Demo/Basic Examples (36 min)
 
-# Why do we need to visualize data?
+    i. Plotting a Function (8 min)
+    ii. An Example from Baseball (16 min)
+    iii. An Example from Basketball (12 min)
 
+5. Advanced Examples (5 min)
+6. Further Reading and Wrap up (5 min)
 
-## Humans Process Visuals Faster  
+# Why do we need to visualize data? 
+
+## Why do we need to visualize data? {.smaller}
+
+**Humans Process Visuals Faster**
+
 - 90% of information transmitted to the brain is **visual**  
 - We process images **60,000x faster** than text
-- Example: A simple chart vs. a raw data table → Which is easier to interpret?
 
-::: {style="font-size: 60%;"}
-Source: @ifvp_brain_loves_pictures
-:::
+**Identifying Trends & Patterns**
 
-## Identifying Trends & Patterns  
-- Raw data can be overwhelming, but **visuals reveal insights**  
-- Easier to detect **correlations, outliers, and distributions**  
-- Example: A scatter plot of sales vs. marketing spend → Trends appear at a glance  
+- Visuals reveal insights such as **correlations, outliers, and distributions**  
 
+**Effective Storytelling**
 
-## Better Decision-Making  
-- Helps businesses, researchers, and analysts make **data-driven decisions**  
-- Reduces bias by presenting **clear, objective insights**  
-- Example: Heatmaps in sports analytics → Where does a player score the most?  
-
-
-## Effective Storytelling   {.smaller}
-- Data alone doesn't engage people, **stories do**  
 - Visualization transforms numbers into **compelling narratives**  
-- Example: COVID-19 charts → How visualization helped communicate urgency globally 
 
-![](images/john_hopkins_covid.png){fig-align="center" width="80%"}
+**In Sports**
+
+- Identifies patterns and trends in player and team performance helping teams optimize strategies.
+
+
+
 
 ::: {style="font-size: 60%;"}
-Source: @jhu_covid_map
+Source: @ifvp_brain_loves_pictures, @quickstart_sports_analytics
 :::
-
-## In Sports
-
-- Enhances decision-making by optimizing strategies  
-- Identifies patterns and trends in player and team performance  
-- Supports injury prevention by tracking workload 
-
-Source @quickstart_sports_analytics
 
 ## What Makes a Plot Good?  {.smaller}
 
 - **Clarity & Simplicity** → Avoid clutter, use clear labels.  
 - **Accuracy** → Represent data truthfully, avoid misleading scales.  
-- **Effective Use of Color** → Use contrast wisely, avoid red-green, and use colorblind-friendly palettes. 
+- **Effective Use of Color** → Use contrast wisely, and use colorblind-friendly palettes. 
 - **Right Chart Type** → Match the plot to the data.  
 - **Storytelling** → Every plot should highlight key insights.  
 - **Effective Use of Shapes & Line Styles** → Dotted lines for trends, different markers for categories.  
@@ -94,17 +85,14 @@ Source @quickstart_sports_analytics
 #### Matplotlib (@matplotlib_2024)   {.smaller} 
 - Versatile and widely used for static, animated, and interactive plots  
 - Provides full control over plot customization  
-- Used for general-purpose plotting in sports analytics  
 
 #### Seaborn (@seaborn_2024) {.smaller} 
 - Built on Matplotlib with enhanced statistical visualization  
 - Ideal for exploring correlations, distributions, and trends  
-- Useful for analyzing player stats and team performance  
 
 #### Sportypy (@sportypy_2024) {.smaller} 
 - Designed specifically for sports analytics visualization  
 - Supports court, field, and pitch plotting for multiple sports  
-- Simplifies overlaying player tracking and event data
 
 ## Python Plotting Packages {.smaller}
 #### Plotly (@plotly_python) {.smaller}  
@@ -117,10 +105,7 @@ Source @quickstart_sports_analytics
 - Uses a layered approach for building plots  
 - Ideal for creating complex visualizations with minimal code  
 
-#### Altair (@altair_viz) {.smaller}  
-- Declarative and user-friendly syntax for statistical plots  
-- Built on **Vega-Lite**, optimized for simplicity  
-- Great for visualizing structured data and trends  
+
 
 # 
 :::: {columns}
@@ -185,7 +170,6 @@ Source: @matplotlib_2024
 - **Verbosity** – Requires more code compared to modern libraries (e.g., Seaborn, Plotly).  
 - **Limited interactivity** – Not ideal for interactive dashboards.  
 - **Complexity** – Advanced customization can be tricky.  
-- **Performance issues** – Slower for large datasets compared to specialized libraries.  
 
 ## Installation 
 
@@ -265,7 +249,7 @@ import matplotlib.pyplot as plt
 - `plt.grid(True, linestyle='--')` → Add grid  
     - `True/False`, `linestyle`, `linewidth`
 - `plt.legend()` → Add legend
-    - loc, fontsize, title, frameon, bbox_to_anchor
+    - `loc, fontsize, title, frameon, bbox_to_anchor`
 
 ## Multiple Plots & Subplots {.smaller}
 
@@ -287,13 +271,21 @@ import matplotlib.pyplot as plt
 
 # Code Demo
 
-## Follow Along with Jupyter Notebooks
+## Follow Along with Google Collaborate {.smaller}
 
-Download files in the `demo` folder from Github repo available at [github.com/ram200010/CSAS_2025_Data_Visualization](https://github.com/ram200010/CSAS_2025_Data_Visualization)
+
+**If you have a gmail account**
+
+- Go to [tinyurl.com/3x9wa64k](https://tinyurl.com/3x9wa64k)
+- The link is also available in the GitHub repository for this workshop.
+
+
+**If you do not have a gmail account but have python installed**
+
+- Download the `demo` file from Github repo available at [github.com/ram200010/CSAS_2025_Data_Visualization](https://github.com/ram200010/CSAS_2025_Data_Visualization) and open with jupyter notebooks.
 
 Link to GitHub Page for this workshop is also available on CSAS 2025 website.
 
-You can also clone the repository or download the zip-file for the entire repo. 
 
 
 
@@ -382,15 +374,10 @@ Hosted by MLB, Baseball Savant provides advanced analytics and visualizations us
 
 A go-to resource for analysts, coaches, and fans to explore performance beyond traditional stats.
 
-**Key Features**  
-
 - Statcast tracking for pitches, batted balls, and player movement  
 - Downloadable CSV files with pitch velocity, spin rate, exit velocity, launch angle, and more  
-- Interactive visualizations like spray charts, heat maps, and pitch tunnels  
-- Leaderboards for hitters, pitchers, and fielders based on advanced metrics  
-- Useful for player comparisons, scouting, and trend analysis  
 
-![](images/baseball_zones.png)
+
 
 (Source: @baseballsavant_statcast_search)
 
@@ -484,9 +471,8 @@ plt.show()
 
 :::
 ::::
+
 ## Ball Hit Location by Zone {.smaller .scrollable}
-
-
 
 ```{python}
 #| fig-align: center
@@ -513,6 +499,23 @@ plt.show()
 
 ## Example 3: Multiple Plots with Basketball Data
 
+
+:::: {.columns}
+::: {.column width='35%'}
+####
+::::: {style='font-size: 60%;'}
+**NBA API (Unofficial)**
+
+
+- Community-maintained API for accessing NBA stats  
+- Provides box scores, player stats, game logs, and shot charts  
+- Available through Python packages like `nba_api`
+
+(Source: @nba_api_documentation)
+:::::
+:::
+
+::: {.column width='65%'}
 ```{python}
 #| fig-align: center
 import matplotlib.pyplot as plt
@@ -557,6 +560,8 @@ plt.show()
 
 ```
 
+:::
+::::
 
 ## Example 3: Multiple Plots in Basketball {.scrollable .smaller}
 
@@ -604,6 +609,31 @@ plt.show()
 
 
 ```
+
+
+
+## Matplotlib Style Sheets {.smaller}
+
+Predefined themes in Matplotlib that adjust colors, fonts, and layouts for consistent visualization.
+
+Themes can be used to quickly enhance readability, aesthetics, and consistency in plots.  
+
+**Using a Style Sheet**  
+
+- `plt.style.available` → Lists all available styles
+- `plt.style.use('ggplot')` → Applies the *ggplot* style  
+- `with plt.style.context('seaborn-darkgrid'):` → Temporary style change  
+
+**Popular Styles**  
+
+- `ggplot` – Inspired by R’s ggplot2, uses soft colors and grid  
+- `seaborn` – Matches Seaborn’s default styling  
+- `fivethirtyeight` – Mimics FiveThirtyEight’s visual style  
+- `dark_background` – High contrast for dark themes  
+
+
+
+
 
 
 # Advanced Examples
@@ -724,23 +754,9 @@ plt.show()
 
 
 
-
 ## Advanced Example: Basketball Heatmap {.smaller}
 
 
-
-:::: {.columns}
-::: {.column width='40%'}
-#### NBA API (Unofficial)  {.smaller}
-- Community-maintained API for accessing NBA stats  
-- Provides box scores, player stats, game logs, and shot charts  
-- Available through Python packages like `nba_api`
-
-::::: {style='font-size: 60%;'}
-(Source: @nba_api_documentation)
-:::::
-:::
-::: {.column width='60%'}
 ```{python}
 #| fig-align: center
 from nba_api.stats.endpoints import shotchartdetail
@@ -814,8 +830,7 @@ ax.set_yticks([])
 plt.legend()
 plt.show()
 ```
-:::
-::::
+
 
 ## Advanced Example: Basketball Heatmap {.smaller .scrollable}
 
@@ -898,28 +913,6 @@ plt.show()
 ::: {style="font-size: 60%;"}
 (Source: @tjortjoglou_nba_shot_charts) 
 :::
-
-
-
-
-## Matplotlib Style Sheets {.smaller}
-
-Predefined themes in Matplotlib that adjust colors, fonts, and layouts for consistent visualization.
-
-Themes can be used to quickly enhance readability, aesthetics, and consistency in plots.  
-
-**Using a Style Sheet**  
-
-- `plt.style.available` → Lists all available styles
-- `plt.style.use('ggplot')` → Applies the *ggplot* style  
-- `with plt.style.context('seaborn-darkgrid'):` → Temporary style change  
-
-**Popular Styles**  
-
-- `ggplot` – Inspired by R’s ggplot2, uses soft colors and grid  
-- `seaborn` – Matches Seaborn’s default styling  
-- `fivethirtyeight` – Mimics FiveThirtyEight’s visual style  
-- `dark_background` – High contrast for dark themes  
 
 
 
