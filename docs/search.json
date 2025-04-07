@@ -1,0 +1,462 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "1 Introduction\nVisualizing data, particularly in sports analytics, provides valuable insights for informed decision-making, reveals underlying patterns in the data, and enhances communication among stakeholders. Leveraging Python’s versatility and powerful data visualization libraries enables the creation of well-crafted visual narratives across diverse domains. Matplotlib, Python’s most popular visualization package, offers extensive customization options and precise control, making it a preferred tool for crafting detailed and impactful visualizations. This workshop will introduce Matplotlib’s robust plotting capabilities, showcase practical examples of data visualizations in baseball and basketball, and equip participants with versatile techniques applicable across any domain.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#about-the-instructor",
+    "href": "index.html#about-the-instructor",
+    "title": "Introduction to Data Visualization",
+    "section": "1.1 About the Instructor",
+    "text": "1.1 About the Instructor\nRahul Manna is a junior pursuing a dual degree in Statistical Data Science and Mechanical Engineering at the University of Connecticut. He is currently working as a research assistant in the Laboratory for Advanced Manufacturing Reliability (KKim Lab), where he tests materials for implantable bioelectronics and uses Python and Matplotlib to analyze and visualize data. Outside the classroom and workspace, Rahul enjoys Formula One, where the fusion of cutting-edge engineering, advanced statistics, data science, analytics, and human ingenuity drives both the on-track performances and the strategic decisions behind the scenes",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "Introduction to Data Visualization",
+    "section": "1.2 Data",
+    "text": "1.2 Data\nData used in this workshop is obtained from Baseball Savant and NBA API with the pybaseball and nba_api packages.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Introduction to Data Visualization",
+    "section": "1.3 References",
+    "text": "1.3 References\nAvailable at References",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "data_visualization.html",
+    "href": "data_visualization.html",
+    "title": "2  Data Visualization",
+    "section": "",
+    "text": "2.1 Why Do We Need to Visualize Data?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "data_visualization.html#why-do-we-need-to-visualize-data",
+    "href": "data_visualization.html#why-do-we-need-to-visualize-data",
+    "title": "2  Data Visualization",
+    "section": "",
+    "text": "2.1.1 Humans Process Visuals Faster\n\n90% of information transmitted to the brain is visual\nOur brains are wired to process and interpret visual information much more efficiently than text or numbers alone.\n\nWe process images 60,000 times faster than text\nThis speed allows us to recognize patterns, trends, and relationships in data almost instantly.\n\nExample: A simple chart vs. a raw data table → Which is easier to interpret?\nConsider a table with hundreds of numbers representing sales over time versus a line chart showing the trend. The chart immediately reveals growth, decline, or seasonality, while the table requires extra effort to interpret.\n\n\nSource: International Forum of Visual Practitioners (n.d.)\n\n\n\n2.1.2 Identifying Trends & Patterns\n\nRaw data can be overwhelming, but visuals reveal insights\nLarge datasets are difficult to comprehend in tabular form, but a well-designed visualization can highlight key trends, relationships, and outliers in seconds.\n\nEasier to detect correlations, outliers, and distributions\n\nCorrelations: A scatter plot can show how two variables relate to each other.\n\nOutliers: Box plots and histograms can highlight anomalies in the data.\n\nDistributions: Histograms and density plots reveal the shape of data distributions.\n\n\nExample: A scatter plot of sales vs. marketing spend → Trends appear at a glance\nA scatter plot can immediately show whether increased marketing spending leads to higher sales, revealing a possible correlation.\n\n\n\n2.1.3 Better Decision-Making\n\nHelps businesses, researchers, and analysts make data-driven decisions\nData visualizations support strategic planning by providing clear evidence to back up decisions.\n\nReduces bias by presenting clear, objective insights\nA well-constructed visualization minimizes misinterpretation and allows stakeholders to focus on the data rather than personal opinions.\n\nExample: Heatmaps in sports analytics → Where does a player score the most?\nA heatmap of shot attempts in basketball or soccer can reveal a player’s preferred scoring areas, helping coaches refine game strategies.\n\n\n\n2.1.4 Effective Storytelling\n\nData alone does not engage people, stories do\nNumbers may contain valuable insights, but without visualization, they can be difficult to communicate to a broad audience.\n\nVisualization transforms numbers into compelling narratives\nGood visualizations create a structured story, guiding the audience through key insights with clear, intuitive graphics.\n\nExample: COVID-19 charts → How visualization helped communicate urgency globally\nCharts from sources like John Hopkins University helped illustrate the rapid spread of COVID-19, emphasizing the need for urgent policy responses.\n\n\n\n\n\n\n\nSource: Johns Hopkins University (n.d.)\n\n\n\n2.1.5 The Role of Visualization in Sports\n\nEnhances decision-making by optimizing strategies\nCoaches and analysts use visualized data to determine the best plays, formations, and tactics based on past performance.\n\nIdentifies patterns and trends in player and team performance\nTracking and visualizing performance metrics over time helps identify areas for improvement.\n\nImproves fan engagement with accessible insights\nVisualizing metrics and statistics in an intuitive way allows fans to better understand game dynamics, player performance, and team strategies, making the sport more engaging and interactive.\n\n\nSource: QuickStart (2024)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "data_visualization.html#what-makes-a-good-plot",
+    "href": "data_visualization.html#what-makes-a-good-plot",
+    "title": "2  Data Visualization",
+    "section": "2.2 What Makes a Good Plot?",
+    "text": "2.2 What Makes a Good Plot?\n\nClarity & Simplicity → Avoid clutter, use clear labels A good plot should be easy to interpret at a glance, with well-labeled axes and an intuitive layout.\nAccuracy → Represent data truthfully, avoid misleading scales Avoid using truncated axes or inappropriate chart types that might distort the interpretation of data.\nEffective Use of Color → Use contrast wisely, avoid red-green combinations, and use colorblind-friendly palettes\nMany people are colorblind; using color schemes like Viridis or colorblind-friendly palettes ensures accessibility.\nRight Chart Type → Match the plot to the data\n\nLine charts for trends over time\n\nBar charts for categorical comparisons\n\nScatter plots for relationships and correlations\n\nStorytelling → Every plot should highlight key insights The audience should be able to immediately understand the takeaway message of the visualization.\nShapes & Line Styles → Dotted lines for trends, different markers for categories Customizing markers and line styles makes it easier to distinguish different series in a plot.\nResolution & Scalability → High DPI for presentations, vector formats for publications Ensure visualizations look sharp in different formats, whether on a screen or in print.\n\n\n\n\n\nInternational Forum of Visual Practitioners. (n.d.). Why our brain loves pictures. https://ifvp.org/content/why-our-brain-loves-pictures\n\n\nJohns Hopkins University. (n.d.). COVID-19 dashboard by the center for systems science and engineering (CSSE). https://coronavirus.jhu.edu/map.html\n\n\nQuickStart. (2024). Data analytics and visualization: Revolutionizing sports. https://www.quickstart.com/blog/data-science/data-analytics-and-visualization-revolutionizing-sports/",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "python_and_vis.html",
+    "href": "python_and_vis.html",
+    "title": "3  Python and Visualization",
+    "section": "",
+    "text": "3.1 Python\nPython is a high-level, interpreted programming language known for its readability and versatility. It is widely used in data science, machine learning, web development, and scientific computing. Python has a vast ecosystem of packages that extend its functionality. Popular package managers like pip and conda allow users to install libraries for data analysis, machine learning, web development, and more. For example, pip install numpy installs NumPy, a package for numerical computing.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python and Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "python_and_vis.html#installing-python",
+    "href": "python_and_vis.html#installing-python",
+    "title": "3  Python and Visualization",
+    "section": "3.2 Installing Python",
+    "text": "3.2 Installing Python\nTo install Python, visit the official website python.org and download the latest version. Alternatively, install it using package managers:\n\nWindows: Install via the Microsoft Store\nmacOS: Use Homebrew: brew install python\nLinux: Use the system’s package manager: sudo apt install python3",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python and Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "python_and_vis.html#running-python",
+    "href": "python_and_vis.html#running-python",
+    "title": "3  Python and Visualization",
+    "section": "3.3 Running Python",
+    "text": "3.3 Running Python\nOnce installed, you can run Python in multiple ways:\n\nInteractive Mode: Open a terminal and type python or python3 to start an interactive session.\nScript Mode: Write a Python script (e.g., script.py) and execute it using python script.py.\nJupyter Notebook: Run jupyter notebook if Jupyter is installed for an interactive coding environment.\nVS Code & PyCharm: Use an IDE like VS Code or PyCharm for development.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python and Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "python_and_vis.html#python-plotting-packages",
+    "href": "python_and_vis.html#python-plotting-packages",
+    "title": "3  Python and Visualization",
+    "section": "3.4 Python Plotting Packages",
+    "text": "3.4 Python Plotting Packages\n\n3.4.1 Matplotlib (Matplotlib Development Team (2024))\n\nVersatile and widely used for static, animated, and interactive plots\nMatplotlib provides extensive tools for creating various types of visualizations, from simple line plots to complex multi-panel figures.\n\nProvides full control over plot customization\nUsers can customize every aspect of the plot, including fonts, colors, tick marks, and gridlines.\n\nUsed for general-purpose plotting in sports analytics\nAnalysts use Matplotlib to visualize player performance, tracking data, and game statistics.\n\n\n\n3.4.2 Seaborn (Seaborn Development Team (2024))\n\nBuilt on Matplotlib with enhanced statistical visualization\nSeaborn simplifies the creation of aesthetically pleasing statistical plots.\n\nIdeal for exploring correlations, distributions, and trends\nFeatures like pairplot and heatmap make it easy to identify relationships in data.\n\nUseful for analyzing player stats and team performance\nSeaborn’s boxplot can compare player performance across different seasons.\n\n\n\n3.4.3 Sportypy (SportsDataverse (2024))\n\nDesigned specifically for sports analytics visualization\nProvides built-in functions to visualize game-specific elements such as field layouts.\n\nSupports court, field, and pitch plotting for multiple sports\nMakes it easy to overlay player positions, passes, and shot attempts.\n\nSimplifies overlaying player tracking and event data\nUseful for analyzing movement patterns in soccer, basketball, and other sports.\n\n\n\n3.4.4 Plotly (Plotly Technologies Inc. (n.d.))\n\nPowerful for interactive and web-based visualizations\nUsers can zoom, pan, and hover over data points for deeper analysis.\n\nSupports zooming, hovering, and dynamic updates\nEspecially useful for exploring large datasets.\n\nIdeal for real-time data analysis and dashboards\nFrequently used in dashboards for live game statistics.\n\n\n\n3.4.5 Plotnine (Plotnine Developers (n.d.))\n\nPython’s implementation of the ggplot2 grammar of graphics\nProvides a structured, layered approach to visualization.\n\nUses a layered approach for building plots\nEach layer represents a component of the visualization, allowing for flexible customization.\n\nIdeal for creating complex visualizations with minimal code\nReduces the need for long, detailed Matplotlib code.\n\n\n\n\n\nMatplotlib Development Team. (2024). Matplotlib: Visualization with python. https://matplotlib.org/stable/index.html\n\n\nPlotly Technologies Inc. (n.d.). Plotly python graphing library. https://plotly.com/python/\n\n\nPlotnine Developers. (n.d.). Plotnine: A grammar of graphics for python. https://plotnine.org/\n\n\nSeaborn Development Team. (2024). Seaborn: Statistical data visualization. https://seaborn.pydata.org/\n\n\nSportsDataverse. (2024). SportyPy: Sports data analysis in python. https://sportypy.sportsdataverse.org/",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python and Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html",
+    "href": "matplotlib.html",
+    "title": "4  Matplotlib",
+    "section": "",
+    "text": "4.1 Introduction to Matplotlib",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#introduction-to-matplotlib",
+    "href": "matplotlib.html#introduction-to-matplotlib",
+    "title": "4  Matplotlib",
+    "section": "",
+    "text": "Developed by neurobiologist John D. Hunter in 2003 as a tool for scientific computing in Python.\nInitially designed to provide MATLAB-like plotting capabilities.\nEvolved into one of the most widely-used plotting libraries, forming the foundation of Python’s visualization ecosystem.\nUsed extensively in scientific computing, data analysis, machine learning, and engineering applications.\nSupports diverse output formats such as PNG, PDF, SVG, and interactive backends.\n\n\n\n\n\nDr. John Hunter; Image courtesy of Princeton Alumni Weekly (n.d.)\n\n\n\n\n\n\n\n\n\n\nFun Facts\n\n\n\n\nMatplotlib was used by NASA for data visualization during the 2008 landing of the Phoenix spacecraft on Mars.\nIn 2018, matplotlib contributed to generating the first-ever image of a black hole by the Event Horizon Telescope team.\n\n\n\n\n\n\n\n\n\nSource: Matplotlib Development Team (2024)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#pros-and-cons-of-matplotlib",
+    "href": "matplotlib.html#pros-and-cons-of-matplotlib",
+    "title": "4  Matplotlib",
+    "section": "4.2 Pros and Cons of Matplotlib",
+    "text": "4.2 Pros and Cons of Matplotlib\n\n4.2.1 Strengths\n\nHighly customizable – Enables fine-tuned, publication-quality visualizations.\n\nSeamless integration with NumPy, Pandas, and SciPy for scientific computing.\n\nSupports multiple output formats (PNG, PDF, SVG, etc.), making it ideal for diverse use cases.\n\nGreat for static plots used in research papers, reports, and presentations.\n\nLarge community support with extensive documentation and active development.\n\n\n\n4.2.2 Weaknesses\n\nVerbose syntax – Requires more lines of code compared to modern high-level libraries like Seaborn and Plotly.\n\nLimited interactivity – Less suited for interactive dashboards compared to libraries like Plotly.\n\nSteeper learning curve for advanced customizations and handling multiple subplots.\n\nPerformance bottlenecks when handling extremely large datasets compared to specialized visualization libraries.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#installation",
+    "href": "matplotlib.html#installation",
+    "title": "4  Matplotlib",
+    "section": "4.3 Installation",
+    "text": "4.3 Installation\nLatest available version: 3.10\nInstall using pip (Recommended)\npip install matplotlib\nInstall using conda (For Anaconda/Miniconda users)\nconda install matplotlib\nImporting Matplotlib\nimport matplotlib.pyplot as plt",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#anatomy-of-a-matplotlib-figure",
+    "href": "matplotlib.html#anatomy-of-a-matplotlib-figure",
+    "title": "4  Matplotlib",
+    "section": "4.4 Anatomy of a Matplotlib Figure",
+    "text": "4.4 Anatomy of a Matplotlib Figure\n\nFigure: The entire canvas that contains all plots.\nAxes: The main plotting area where data visualization occurs.\nAxis: The x-axis and y-axis components.\nTicks & Labels: Marks and corresponding text labels along the axes.\nLegend: Explains colors, lines, or markers.\nTitle & Labels: Describe the overall plot and individual axes.\nGrid: Optional background reference lines for better readability.\n\n\n\n\nImage courtesy of Matplotlib Development Team (2024)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#basic-plotting-commands",
+    "href": "matplotlib.html#basic-plotting-commands",
+    "title": "4  Matplotlib",
+    "section": "4.5 Basic Plotting Commands",
+    "text": "4.5 Basic Plotting Commands\nimport matplotlib.pyplot as plt\n\nLine Plot → plt.plot(x, y)\n\nCustomize with color, linestyle, marker, label, alpha, linewidth\n\nScatter Plot → plt.scatter(x, y)\n\nOptions: color, marker, s (marker size), c (marker color), alpha\n\nBar Chart → plt.bar(x, y)\n\nModify with height, width, color, align\n\nHistogram → plt.hist(data, bins=10)\n\nControl bins, range, density, color, alpha\n\nPie Chart → plt.pie(sizes, labels=labels)\n\nOptions: sizes, labels, colors, startangle, autopct\n\n\nTable 1: Common Matplotlib Markers and Linestyles\n\n\n\nMarker\nDescription\nLine Style\nDescription\n\n\n\n\n.\nPoint\n-\nSolid\n\n\no\nCircle\n--\nDashed\n\n\nv\nTriangle Down\n-.\nDash-dot\n\n\n^\nTriangle Up\n:\nDotted\n\n\n&lt;\nTriangle Left\nNone\nNo line\n\n\n&gt;\nTriangle Right\n\n\n\n\ns\nSquare\n\n\n\n\np\nPentagon\n\n\n\n\n*\nStar\n\n\n\n\n+\nPlus\n\n\n\n\nx\nCross\n\n\n\n\nD\nDiamond\n\n\n\n\nh\nHexagon1\n\n\n\n\nH\nHexagon2\n\n\n\n\n\nMore Linestyles\nMore Markers",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#customization-commands",
+    "href": "matplotlib.html#customization-commands",
+    "title": "4  Matplotlib",
+    "section": "4.6 Customization Commands",
+    "text": "4.6 Customization Commands\n\nAxis Labels → plt.xlabel(\"X-axis Label\"), plt.ylabel(\"Y-axis Label\")\n\nCustomize with fontsize, color\n\nTitle → plt.title(\"Plot Title\")\n\nAdjust positioning with left, right, bottom, top\n\nAxis Limits → plt.xlim(min, max), plt.ylim(min, max)\nCustom Tick Labels → plt.xticks(ticks, labels), plt.yticks(ticks, labels)\nGrid → plt.grid(True, linestyle='--')\nLegend → plt.legend()\n\nParameters: loc, fontsize, title, frameon, bbox_to_anchor",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#multiple-plots-subplots",
+    "href": "matplotlib.html#multiple-plots-subplots",
+    "title": "4  Matplotlib",
+    "section": "4.7 Multiple Plots & Subplots",
+    "text": "4.7 Multiple Plots & Subplots\n\nCreate a new figure → plt.figure(figsize=(width, height))\nSubplots using the functional API → plt.subplot(rows, cols, index)\nObject-oriented approach → fig, ax = plt.subplots()\n\nSupports nrows, ncols, figsize, sharex, sharey\n\nPlot using axes objects → ax.plot(x, y)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "matplotlib.html#saving-displaying-plots",
+    "href": "matplotlib.html#saving-displaying-plots",
+    "title": "4  Matplotlib",
+    "section": "4.8 Saving & Displaying Plots",
+    "text": "4.8 Saving & Displaying Plots\n\nSave Figure as an Image → plt.savefig(\"plot.png\", dpi=300)\n\nOptions: filename, dpi, format\n\nShow the Plot → plt.show()\nClose the Current Figure → plt.close()\n\n\n\n\n\nMatplotlib Development Team. (2024). Matplotlib: Visualization with python. https://matplotlib.org/stable/index.html\n\n\nPrinceton Alumni Weekly. (n.d.). John d. Hunter ’90 memorial. https://paw.princeton.edu/memorial/john-d-hunter-90",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "example1.html",
+    "href": "example1.html",
+    "title": "5  Example 1: Standard Normal Distribution",
+    "section": "",
+    "text": "5.1 Plotting a Fuction\nLet’s plot the standard normal distribution \\(N(\\mu=1,\\sigma=1)\\) pdf given below.\n\\[ f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}e^{\\frac{-(x-\\mu)^2}{2\\sigma^2}} = \\frac{1}{\\sqrt{2\\pi}}e^{\\frac{-x^2}{2}}\\]\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nz = np.linspace(-4,4,1000) # range of z values in plot\n\n# Fuction returns the standard normal pdf\n# Input is list/range of z values\n# Output is list of computed values along the curve\ndef stand_norm(z):\n    return 1/np.sqrt(2*np.pi)*np.exp(-z**2/2)\n\n\nf = stand_norm(z) # Standard Normal Distribution from -4 &lt; z &lt; 4\n\nplt.plot(z,f,label=r'$N(\\mu=0,\\sigma=1)$') # Line Plot\nplt.title('Standard Normal Distribution') # Title\nplt.xlabel('z') # x label\nplt.ylabel('Probability Density') # y label\nplt.legend() # show legend\n\n\nplt.show() # show figure",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Example 1: Standard Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "example1.html#plotting-a-fuction",
+    "href": "example1.html#plotting-a-fuction",
+    "title": "5  Example 1: Standard Normal Distribution",
+    "section": "",
+    "text": "Line plot → plt.plot(x, y, color , linestyle, marker, label, alpha, linewidth)\n\nAxis labels → plt.xlabel(\"X-axis Label\", label, fontsize, color), plt.ylabel(\"Y-axis Label\", label, fontsize, color)\nTitle → plt.title(\"Plot Title\", left, right, bottom, top)\nAdd legend → plt.legend(loc, fontsize, title, frameon, bbox_to_anchor)\nDisplay plot → plt.show()\n\n\n\n5.1.1 Coloring an area\nThe area under a statistical distribution, particularly the normal distribution, plays a crucial role in probability theory and statistical analysis. It represents cumulative probability, which helps determine the likelihood of a random variable falling within a specific range.\nLet’s fill the area between \\(z=1\\) and \\(z=4\\).\n\nFill area → plt.fill_between(x, y1, y2, color, alpha)\n\n\nplt.plot(z,f,label=r'$N(\\mu=0,\\sigma=1)$')\nplt.title('Standard Normal Distribution')\nplt.xlabel('z')\nplt.ylabel('Probability Density')\nplt.legend()\n\n\nz1 = np.linspace(1,4,1000) # z1 defined from 1 to 4 with 1000 values\nf1 = stand_norm(z1) # Standard Normal Distribution from 1 &lt; z &lt; 4\n\nplt.fill_between(z1,0,f1,alpha=0.5)\n\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Example 1: Standard Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "example2.html",
+    "href": "example2.html",
+    "title": "6  Example 2: An example from baseball",
+    "section": "",
+    "text": "6.1 Baseball Savant\nArea over home plate is divided into a a grid for pitch analysis.\nThis grid helps analyze pitch effectiveness, swing decisions, and strike zone control.\nHosted by MLB, Baseball Savant provides advanced analytics and visualizations using Statcast data.\nA go-to resource for analysts, coaches, and fans to explore performance beyond traditional stats.\nKey Features\nThis example with use statcast data obtained with the pybaseball package.\n(Source: MLB Advanced Media (2024))",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Example 2: An example from baseball</span>"
+    ]
+  },
+  {
+    "objectID": "example2.html#baseball-savant",
+    "href": "example2.html#baseball-savant",
+    "title": "6  Example 2: An example from baseball",
+    "section": "",
+    "text": "Statcast tracking for pitches, batted balls, and player movement\n\nDownloadable CSV files with pitch velocity, spin rate, exit velocity, launch angle, and more\n\nInteractive visualizations like spray charts, heat maps, and pitch tunnels\n\nLeaderboards for hitters, pitchers, and fielders based on advanced metrics\n\nUseful for player comparisons, scouting, and trend analysis",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Example 2: An example from baseball</span>"
+    ]
+  },
+  {
+    "objectID": "example2.html#aaron-judges-statcast-data",
+    "href": "example2.html#aaron-judges-statcast-data",
+    "title": "6  Example 2: An example from baseball",
+    "section": "6.2 Aaron Judge’s Statcast Data",
+    "text": "6.2 Aaron Judge’s Statcast Data\n\n\nStar outfielder for the New York Yankees, known for his power hitting and elite defense.\nKey Stats & Achievements\n\n2024 & 2022 American League Most Valuable Player\nMultiple-time All-Star and Silver Slugger winner\n\nCareer HR leader among active Yankees\n\nKnown for exceptional exit velocity and plate discipline\n\n\n\n\n\n\nImage courtesy of Biography.com Editors (n.d.)\n\n\n\n\nLet’s get Aaron Judge’s data for the 2024 Season.\nimport pybaseball as pyball\n\njudge_data = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)\nplatex = judge_data['plate_x']\nplatez = judge_data['plate_z']\njudge_data.head()\n\n\n\n\n\n\n\n\n\npitch_type\ngame_date\nrelease_speed\nrelease_pos_x\nrelease_pos_z\nplayer_name\nbatter\npitcher\nevents\ndescription\n...\nn_thruorder_pitcher\nn_priorpa_thisgame_player_at_bat\npitcher_days_since_prev_game\nbatter_days_since_prev_game\npitcher_days_until_next_game\nbatter_days_until_next_game\napi_break_z_with_gravity\napi_break_x_arm\napi_break_x_batter_in\narm_angle\n\n\n\n\n0\nFF\n2024-09-28\n94.9\n-0.03\n6.40\nJudge, Aaron\n592450\n681347\nstrikeout\nswinging_strike\n...\n1\n1\nNaN\n2.0\nNaN\n7\n0.94\n0.57\n0.57\n57.6\n\n\n1\nCH\n2024-09-28\n86.5\n-0.55\n6.48\nJudge, Aaron\n592450\n681347\nNaN\nball\n...\n1\n1\nNaN\n2.0\nNaN\n7\n2.29\n1.72\n1.72\n47.7\n\n\n2\nFF\n2024-09-28\n94.7\n-0.08\n6.43\nJudge, Aaron\n592450\n681347\nNaN\nfoul\n...\n1\n1\nNaN\n2.0\nNaN\n7\n1.16\n0.83\n0.83\n58.3\n\n\n3\nSL\n2024-09-28\n87.5\n-0.49\n6.34\nJudge, Aaron\n592450\n681347\nNaN\nball\n...\n1\n1\nNaN\n2.0\nNaN\n7\n2.33\n-0.47\n-0.47\n45.2\n\n\n4\nCU\n2024-09-28\n79.4\n-0.40\n6.36\nJudge, Aaron\n592450\n681347\nNaN\ncalled_strike\n...\n1\n1\nNaN\n2.0\nNaN\n7\n4.84\n-0.44\n-0.44\n53.6\n\n\n\n\n5 rows × 113 columns",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Example 2: An example from baseball</span>"
+    ]
+  },
+  {
+    "objectID": "example2.html#scatter-plot-of-hit-locations",
+    "href": "example2.html#scatter-plot-of-hit-locations",
+    "title": "6  Example 2: An example from baseball",
+    "section": "6.3 Scatter Plot of Hit Locations",
+    "text": "6.3 Scatter Plot of Hit Locations\nLet’s make a scatter plot Judge’s hit locations over the home plate.\n\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(9,7))\n\nplt.scatter(platex,platez)\n\nplt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)\nplt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)\nplt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Example 2: An example from baseball</span>"
+    ]
+  },
+  {
+    "objectID": "example2.html#hit-location-colored-by-exit-velocity",
+    "href": "example2.html#hit-location-colored-by-exit-velocity",
+    "title": "6  Example 2: An example from baseball",
+    "section": "6.4 Hit Location Colored by Exit Velocity",
+    "text": "6.4 Hit Location Colored by Exit Velocity\nLet’s make a scatter plot Judge’s hit locations over the home plate colored by his exit velocity.\n\nplt.figure(figsize=(9,7))\nplt.scatter(platex,platez,c=judge_data['launch_speed'],cmap='plasma')\nplt.colorbar(label='Launch Speed (mph)')\nplt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)\nplt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)\nplt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)\nplt.xlim(-1.5,1.5)\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Example 2: An example from baseball</span>"
+    ]
+  },
+  {
+    "objectID": "example2.html#aaron-judges-hit-locations-by-zone",
+    "href": "example2.html#aaron-judges-hit-locations-by-zone",
+    "title": "6  Example 2: An example from baseball",
+    "section": "6.5 Aaron Judge’s Hit Locations by Zone",
+    "text": "6.5 Aaron Judge’s Hit Locations by Zone\nStatcast categorizes the hit location on a 9x9 grid. Each grid has a unique zone number. A ball out side the grid is out of zone and in the strike zone. Here is how the grid is defined.\n\n\n\n\n\nLet’s make a scatter plot Judge’s hit locations over the home plate colered by the zones.\n\njudge_data['in_zone'] = judge_data['zone'].apply(lambda x: f'Zone: {str(int(x))}' if x in range(0,10) else 'Out of Zone')\n\nplt.figure(figsize=(9,7))\n\nfor category, group in judge_data.groupby('in_zone'):\n    plt.scatter(group['plate_x'],group['plate_z'],label=category)\n\n\nplt.title('Aaron Judge Hit Locations Over Home Plate',weight='bold',fontsize=18)\nplt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)\nplt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)\nplt.legend(ncols=2)\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Example 2: An example from baseball</span>"
+    ]
+  },
+  {
+    "objectID": "example2.html#kernel-density-estimate---pitch-locations",
+    "href": "example2.html#kernel-density-estimate---pitch-locations",
+    "title": "6  Example 2: An example from baseball",
+    "section": "6.6 Kernel Density Estimate - Pitch Locations",
+    "text": "6.6 Kernel Density Estimate - Pitch Locations\nIn the plot above, it is difficult to visualize where majority of the balls are landing. A 2D Kernel Density Estimate (KDE) plot visualizes the probability density of two continuous variables by smoothing data points using a kernel function, typically represented with contour lines or a heatmap. In Seaborn, a Python data visualization library, this can be easily created using sns.kdeplot(), helping to identify clusters, relationships, and density patterns in bivariate data.\n\nimport seaborn as sns\n\nplt.figure(figsize=(9,7))\nsns.kdeplot(data=judge_data,x='plate_x',y='plate_z',cmap=\"Reds\", \n    fill=True, \n    thresh=0)\nplt.title('Aaron Judge Pitch Positions Over Home Plate',weight='bold',fontsize=18)\nplt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)\nplt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)\nplt.show()\n\n\n\n\n\n\n\n\n\n6.6.1 Adding a Strike Zone Box\n\nimport matplotlib.patches as patches\n\nfig, ax = plt.subplots(figsize=(9,7))\n\n\nsns.kdeplot(data=judge_data,x='plate_x',y='plate_z',cmap=\"Reds\", \n    fill=True, \n    thresh=0)\n\nax.set_title('Aaron Judge Pitch Positions Over Home Plate',weight='bold',fontsize=18)\nax.set_xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)\nax.set_ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)\n\n\nin_zone_data = judge_data[judge_data['in_zone'] != 'Out of Zone']\n\nmin_x = in_zone_data['plate_x'].min()\nmax_x = in_zone_data['plate_x'].max()\n\nmin_z = in_zone_data['plate_z'].min()\nmax_z = in_zone_data['plate_z'].max()\n\nrect = patches.Rectangle((min_x,min_z),max_x-min_x,max_z-min_z,facecolor='none',edgecolor='black',linestyle='--',linewidth=3,label='Strike Zone')\n\nax.add_patch(rect)\n\nplt.legend(fontsize=12)\n\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nBiography.com Editors. (n.d.). Aaron judge biography. https://www.biography.com/athletes/a86222233/aaron-judge\n\n\nMLB Advanced Media. (2024). Statcast search. https://baseballsavant.mlb.com/statcast_search",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Example 2: An example from baseball</span>"
+    ]
+  },
+  {
+    "objectID": "example3.html",
+    "href": "example3.html",
+    "title": "7  Example 3: Multiple Plots in Basketball",
+    "section": "",
+    "text": "7.1 Getting NBA data\nLet’s make a 1x2 array of bar charts of the win percentages of top NBA teams in the 2022-23 and 2023-24 seasons.\nWe will be obtaining data with the nba-api package in python.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Example 3: Multiple Plots in Basketball</span>"
+    ]
+  },
+  {
+    "objectID": "example3.html#getting-nba-data",
+    "href": "example3.html#getting-nba-data",
+    "title": "7  Example 3: Multiple Plots in Basketball",
+    "section": "",
+    "text": "7.1.1 NBA API (Unofficial)\n\nCommunity-maintained API for accessing NBA stats\n\nProvides box scores, player stats, game logs, and shot charts\n\nAvailable through Python packages like nba_api\n\n\nfrom nba_api.stats.endpoints import LeagueStandings\n\n# Fetch data for each season\ndata_2023 = LeagueStandings(season='2022-23').get_data_frames()[0]\ndata_2024 = LeagueStandings(season='2023-24').get_data_frames()[0]\n\n# Compute win percentages\ndata_2023['WinPct'] = data_2023['WINS'] / (data_2023['WINS'] + data_2023['LOSSES'])\ndata_2024['WinPct'] = data_2024['WINS'] / (data_2024['WINS'] + data_2024['LOSSES'])\n\n# Get top 5 teams for each season\ntop_2023 = data_2023.nlargest(5, 'WinPct')[['TeamName','TeamID','WINS','LOSSES','WinPct']]\ntop_2024 = data_2024.nlargest(5, 'WinPct')[['TeamName','TeamID','WINS','LOSSES','WinPct']]\n\nteam_23 = top_2023['TeamName']\npct_23 = top_2023['WinPct']\n\nteam_24 = top_2024['TeamName']\npct_24 = top_2024['WinPct']\n\nprint('2022-23 Season','\\n',top_2023.head(),'\\n')\nprint('2024-25 Season','\\n',top_2024.head())\n\n2022-23 Season \n     TeamName      TeamID  WINS  LOSSES    WinPct\n1      Bucks  1610612749    58      24  0.707317\n2    Celtics  1610612738    57      25  0.695122\n5      76ers  1610612755    54      28  0.658537\n0    Nuggets  1610612743    53      29  0.646341\n3  Grizzlies  1610612763    51      31  0.621951 \n\n2024-25 Season \n        TeamName      TeamID  WINS  LOSSES    WinPct\n0       Celtics  1610612738    64      18  0.780488\n1       Thunder  1610612760    57      25  0.695122\n2       Nuggets  1610612743    57      25  0.695122\n4  Timberwolves  1610612750    56      26  0.682927\n6      Clippers  1610612746    51      31  0.621951",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Example 3: Multiple Plots in Basketball</span>"
+    ]
+  },
+  {
+    "objectID": "example3.html#single-bar-chart",
+    "href": "example3.html#single-bar-chart",
+    "title": "7  Example 3: Multiple Plots in Basketball",
+    "section": "7.2 Single Bar Chart",
+    "text": "7.2 Single Bar Chart\nFirst, let’s make a single bar chart.\n\nimport matplotlib.pyplot as plt\n\nplt.bar(team_23, pct_23, color='skyblue')\nplt.title(\"Top 5 NBA Teams by Win Percentage - Season 2022-23\", fontsize=14,weight='bold')\nplt.xlabel(\"Team\", fontsize=12)\nplt.ylabel(\"Win Percentage\", fontsize=12)\nplt.ylim(0, 1)\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Example 3: Multiple Plots in Basketball</span>"
+    ]
+  },
+  {
+    "objectID": "example3.html#multiple-bar-chart-using-plt.subplot",
+    "href": "example3.html#multiple-bar-chart-using-plt.subplot",
+    "title": "7  Example 3: Multiple Plots in Basketball",
+    "section": "7.3 Multiple Bar chart using plt.subplot",
+    "text": "7.3 Multiple Bar chart using plt.subplot\nplt.subplot(rows, cols, index) creates a single subplot at the specified position within a grid of rows × cols subplots, with index determining which subplot is active\n\nplt.suptitle(\"Top 5 NBA Teams by Win Percentage (Last Two Seasons)\", fontsize=16, fontweight='bold')\n\n# Plot 2022-23 season\nplt.subplot(1, 2, 1)\nplt.bar(team_23, pct_23, color='skyblue')\nplt.title(\"Season 2022-23\", fontsize=14)\nplt.xlabel(\"Team\", fontsize=12)\nplt.ylabel(\"Win Percentage\", fontsize=12)\nplt.ylim(0, 1)\nplt.xticks(rotation=30)\n\n# Plot 2023-24 season\nplt.subplot(1, 2, 2)\nplt.bar(team_24, pct_24, color='lightcoral')\nplt.title(\"Season 2023-24\", fontsize=14)\nplt.xlabel(\"Team\", fontsize=12)\nplt.ylabel(\"Win Percentage\", fontsize=12)\nplt.ylim(0, 1)\nplt.xticks(rotation=30)\n\n# Adjust layout and show plot\nplt.tight_layout()\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Example 3: Multiple Plots in Basketball</span>"
+    ]
+  },
+  {
+    "objectID": "example3.html#multiple-bar-chart-using-plt.subplots",
+    "href": "example3.html#multiple-bar-chart-using-plt.subplots",
+    "title": "7  Example 3: Multiple Plots in Basketball",
+    "section": "7.4 Multiple Bar chart using plt.subplots",
+    "text": "7.4 Multiple Bar chart using plt.subplots\nplt.subplots(rows, cols) creates a figure and an array of subplot axes in one call, allowing for easier iteration and direct axis manipulation. This method allows for additional customization.\n\nfig, axes = plt.subplots(1, 2)\nfig.suptitle(\"Top 5 NBA Teams by Win Percentage (Last Two Seasons)\", fontsize=16, fontweight='bold')\n\n# Plot 2022-23 season\naxes[0].bar(team_23, pct_23, color='skyblue')\naxes[0].set_title(\"Season 2022-23\", fontsize=14)\naxes[0].set_xlabel(\"Team\", fontsize=12)\naxes[0].set_ylabel(\"Win Percentage\", fontsize=12)\naxes[0].set_ylim(0, 1)\naxes[0].tick_params(axis='x', rotation=30)\n\n# Plot 2023-24 season\naxes[1].bar(team_24, pct_24, color='lightcoral')\naxes[1].set_title(\"Season 2023-24\", fontsize=14)\naxes[1].set_xlabel(\"Team\", fontsize=12)\naxes[1].set_ylabel(\"Win Percentage\", fontsize=12)\naxes[1].set_ylim(0, 1)\naxes[1].tick_params(axis='x', rotation=30)\n\n# Adjust layout and show plot\nplt.tight_layout()  # Adjust for title spacing\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Example 3: Multiple Plots in Basketball</span>"
+    ]
+  },
+  {
+    "objectID": "example4.html",
+    "href": "example4.html",
+    "title": "8  Example 4: An example from Formula One",
+    "section": "",
+    "text": "8.1 Formula 1 Data Sources\nFormula One data is available through a few different sources.\nWe will be using the fastf1 package to get our data.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Example 4: An example from Formula One</span>"
+    ]
+  },
+  {
+    "objectID": "example4.html#formula-1-data-sources",
+    "href": "example4.html#formula-1-data-sources",
+    "title": "8  Example 4: An example from Formula One",
+    "section": "",
+    "text": "FastF1 (Source: FastF1 Development Team (2024))\n\nPython library for accessing and analyzing F1 data\n\nProvides lap times, telemetry, sector data, and tire strategies\n\nUseful for race strategy analysis and driver performance comparison\n\nErgast API (Source: Ergast (2024))\n\nFree API with historical and current F1 data\n\nIncludes race results, driver standings, and circuit information\n\nGood for building interactive dashboards and statistical models\n\nFIA Website & Documents (Source: Fédération Internationale de l’Automobile (FIA) (2024))\n\nOfficial source for race reports, technical regulations, and timing sheets\n\nProvides PDFs and CSVs with timing and classification data\n\nIdeal for detailed race analysis and rule interpretation",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Example 4: An example from Formula One</span>"
+    ]
+  },
+  {
+    "objectID": "example4.html#telemetry",
+    "href": "example4.html#telemetry",
+    "title": "8  Example 4: An example from Formula One",
+    "section": "8.2 Telemetry",
+    "text": "8.2 Telemetry\nDuring the 2024 Canadian Grand Prix Qualifying, RedBull driver Max Verstappen and Mercedes driver George Russel set the exact same time of 1:12:000. Let’s visualize there use of throttle, brake, and speed throughout their lap.\n\nimport fastf1\nimport matplotlib.pyplot as plt\n\nfastf1.set_log_level('CRITICAL')\n\nquali = fastf1.get_session(2024,'Canada','Q')\n\nquali.load()\n\nver_lap = quali.laps.pick_drivers('VER').pick_fastest().get_car_data()\nrus_lap =  quali.laps.pick_drivers('RUS').pick_fastest().get_car_data()\n\nfig, ax = plt.subplots(nrows=3,sharex = True,figsize=(9,6))\nax[0].plot(ver_lap['Time'].dt.total_seconds(),ver_lap['Throttle'], label='VER',color= '#F36C21')\nax[0].plot(rus_lap['Time'].dt.total_seconds(),rus_lap['Throttle'],label='RUS',color='#00A19B')\nax[0].set_ylabel('Throttle (%)',weight='bold')\nax[0].legend(prop={'size':'small'},loc='upper left')\n\nax[1].plot(ver_lap['Time'].dt.total_seconds(),ver_lap['Speed'],label='VER',color= '#F36C21')\nax[1].plot(rus_lap['Time'].dt.total_seconds(),rus_lap['Speed'],label='RUS',color='#00A19B')\nax[1].set_ylabel('Speed (kph)',weight='bold')\nax[1].legend(prop={'size':'small'},loc='upper left')\n\nax[2].plot(ver_lap['Time'].dt.total_seconds(),100*ver_lap['Brake'],label='VER',color= '#F36C21')\nax[2].plot(rus_lap['Time'].dt.total_seconds(),100*rus_lap['Brake'],label='RUS',color='#00A19B')\nax[2].set_ylabel('Brake (%)',weight='bold')\nax[2].legend(prop={'size':'small'},loc='upper left')\n\nax[0].set_title('Canadian Grand Prix - Qualifying VER vs. RUS - 1:12.000',weight='bold')\nplt.xlabel('Time (s)')\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Example 4: An example from Formula One</span>"
+    ]
+  },
+  {
+    "objectID": "example4.html#lap-times-over-race-distance",
+    "href": "example4.html#lap-times-over-race-distance",
+    "title": "8  Example 4: An example from Formula One",
+    "section": "8.3 Lap Times over Race Distance",
+    "text": "8.3 Lap Times over Race Distance\nDuring the 2024 Belgian Grand Prix, race winner Lewis Hamilton finished 0.647s ahead of Oscar Piastri. Let’s visualize their laptimes over the race distance.\n\n# Load the session\nyear, gp, session_type = 2024, \"Belgian\", \"R\"  \n\nsession = fastf1.get_session(year, gp, session_type)\nsession.load()\n\n# Get lap times for Hamilton and Piastri\ndrivers = {\"HAM\": \"Lewis Hamilton\", \"OSC\": \"Oscar Piastri\"}\nlaps_ham = session.laps.pick_drivers(\"HAM\")\nlaps_ver = session.laps.pick_drivers(\"PIA\")\n\n# Plot\nplt.figure(figsize=(8.5,6))\nplt.plot(laps_ham[\"LapNumber\"], laps_ham[\"LapTime\"].dt.total_seconds(), label=\"Hamilton\", marker=\"o\", linestyle=\"-\",color='#00A19B')\nplt.plot(laps_ver[\"LapNumber\"], laps_ver[\"LapTime\"].dt.total_seconds(), label=\"Piastri\", marker=\"s\", linestyle=\"-\",color= '#FF8000')\n\nplt.xlabel(\"Lap Number\")\nplt.ylabel(\"Lap Time (seconds)\")\nplt.title(f\"{year} {gp} GP - Lap Times\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nErgast. (2024). Ergast motor racing data API. https://ergast.com/mrd/\n\n\nFastF1 Development Team. (2024). FastF1 documentation. https://docs.fastf1.dev/index.html\n\n\nFédération Internationale de l’Automobile (FIA). (2024). 2025 FIA formula one world championship. https://www.fia.com/events/fia-formula-one-world-championship/season-2025/2025-fia-formula-one-world-championship",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Example 4: An example from Formula One</span>"
+    ]
+  },
+  {
+    "objectID": "advanced_examples.html",
+    "href": "advanced_examples.html",
+    "title": "9  Advanced Examples",
+    "section": "",
+    "text": "9.1 Baseball Spray Chart\nHere are some advanced examples of visualizing sports data with matplotlib.\nIn baseball, the ball location on the field can reveal pattern’s in the strengths and weakness of a batter or a team. Let’s make a spray chart for Aaron Judge’s 2023-24 MLB season.\nSportypy is a python package built on matplotlib to add courts and fields to sports visualizations. We’ll be using this package to add a baseball pitch to our plot background.\nfrom sportypy.surfaces.baseball import MLBField\nimport pybaseball as pyball\nimport matplotlib.pyplot as plt\n\ndata = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)\n\ndata = data.groupby('events')\n\nfig, ax = plt.subplots(figsize=(8,6))\n\nfield = MLBField(x_trans=130,y_trans=-213,rotation=180)\n\nfield.draw(ax,xlim=(0,250))\n\nfor i in data.groups.keys():\n    \n    hcx = data.get_group(i)['hc_x']\n    hcy = -1*data.get_group(i)['hc_y']\n\n    if i in ['home_run','double','triple','walk','single']:\n        label = ' '.join([x.capitalize() for x in i.split('_')])\n        field.scatter(hcx,hcy,label=label,linewidths=1,edgecolor='black',s=60)\n\nplt.ylim(-240,20)\n\nplt.legend(ncols=3,prop={'weight':'bold','size':'medium'},loc='lower center')\nplt.title('Aaron Judge Hit Locations - 2024 MLB Season',weight='bold',fontsize=14)\nplt.show()\n\nGathering Player Data",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Advanced Examples</span>"
+    ]
+  },
+  {
+    "objectID": "advanced_examples.html#baseball-spray-chart",
+    "href": "advanced_examples.html#baseball-spray-chart",
+    "title": "9  Advanced Examples",
+    "section": "",
+    "text": "9.1.1 Adding Player Headshot to a Plot\n\nimport PIL.Image\nimport matplotlib.patches as patches\n\ndata = pyball.statcast_batter(start_dt='2024-03-28',end_dt='2024-09-29',player_id=592450)\n\ndata = data.groupby('events')\n\nfig, ax = plt.subplots(figsize=(8,8))\n\nfield = MLBField(x_trans=130,y_trans=-213,rotation=180)\n\nfield.draw(ax,xlim=(0,250))\n\n\nfor i in data.groups.keys():\n    \n    hcx = data.get_group(i)['hc_x']\n    hcy = -1*data.get_group(i)['hc_y']\n\n    if i in ['home_run','double','triple','walk','single']:\n        label = ' '.join([x.capitalize() for x in i.split('_')])\n        field.scatter(hcx,hcy,label=label,linewidths=1,edgecolor='black',s=60)\n\n\nplt.ylim(-250,20)\n\n# Add Headshot\nheadshot = PIL.Image.open('../images/aaron_judge headshot.png')\n\nplt.imshow(headshot,extent=(82,127,-43,17))\nrect = patches.Rectangle((82, -43), 45, 60, linewidth=3, edgecolor='#003366', facecolor='none')\nax.add_patch(rect)\n\nplt.legend(ncols=3,prop={'weight':'bold','size':'medium'},loc='lower center')\nplt.title('Aaron Judge Hit Locations - 2024 MLB Season',weight='bold',fontsize=14)\nplt.show()\n\nGathering Player Data",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Advanced Examples</span>"
+    ]
+  },
+  {
+    "objectID": "advanced_examples.html#basketball-heatmap",
+    "href": "advanced_examples.html#basketball-heatmap",
+    "title": "9  Advanced Examples",
+    "section": "9.2 Basketball Heatmap",
+    "text": "9.2 Basketball Heatmap\nA basketball player’s shot chart is a visual representation of their shooting performance across different areas of the court. By plotting each shot attempt, it highlights the player’s shooting efficiency, preferred spots, and areas of improvement. This data can be used to analyze shooting consistency, identify high-percentage zones, and strategize for both offensive and defensive game planning.\nLet’s make one for Lebron James!\n\nfrom nba_api.stats.endpoints import shotchartdetail\nfrom matplotlib.patches import Circle, Rectangle, Arc\n\nlebron_data = shotchartdetail.ShotChartDetail(team_id = 0, player_id=2544,season_type_all_star=\"Regular Season\",season_nullable=\"2023-24\",context_measure_simple = 'FGA').get_data_frames()[0]\n\nfig, ax = plt.subplots(figsize=(7.5,7.5))\n\n\ndef draw_court(ax=None, color='black', lw=2, outer_lines=False):\n\n    if ax is None:\n        ax = plt.gca()\n\n    hoop = Circle((0, 0), radius=7.5, linewidth=lw, color=color, fill=False)\n\n    backboard = Rectangle((-30, -7.5), 60, -1, linewidth=lw, color=color)\n\n    outer_box = Rectangle((-80, -47.5), 160, 190, linewidth=lw, color=color,fill=False)\n    \n    inner_box = Rectangle((-60, -47.5), 120, 190, linewidth=lw, color=color,fill=False)\n\n    # Create free throw top arc\n    top_free_throw = Arc((0, 142.5), 120, 120, theta1=0, theta2=180,\n                         linewidth=lw, color=color, fill=False)\n    # Create free throw bottom arc\n    bottom_free_throw = Arc((0, 142.5), 120, 120, theta1=180, theta2=0,\n                            linewidth=lw, color=color, linestyle='dashed')\n    # Restricted Zone, it is an arc with 4ft radius from center of the hoop\n    restricted = Arc((0, 0), 80, 80, theta1=0, theta2=180, linewidth=lw,\n                     color=color)\n\n    # Three point line\n    # Create the side 3pt lines, they are 14ft long before they begin to arc\n    corner_three_a = Rectangle((-220, -47.5), 0, 140, linewidth=lw,color=color)\n    corner_three_b = Rectangle((220, -47.5), 0, 140, linewidth=lw, color=color)\n    # 3pt arc - center of arc will be the hoop, arc is 23'9\" away from hoop\n    three_arc = Arc((0, 0), 475, 475, theta1=22, theta2=158, linewidth=lw,color=color)\n\n    center_outer_arc = Arc((0, 422.5), 120, 120, theta1=180, theta2=0,linewidth=lw, color=color)\n    center_inner_arc = Arc((0, 422.5), 40, 40, theta1=180, theta2=0,linewidth=lw, color=color)\n    court_elements = [hoop, backboard, outer_box, inner_box, top_free_throw,\n                      bottom_free_throw, restricted, corner_three_a,\n                      corner_three_b, three_arc, center_outer_arc,\n                      center_inner_arc]\n\n    if outer_lines:\n        outer_lines = Rectangle((-250, -47.5), 500, 470, linewidth=lw,color=color, fill=False)\n        court_elements.append(outer_lines)\n\n    for element in court_elements:\n        ax.add_patch(element)\n\n    return ax\n\ndraw_court(ax)\n\ngrouped = lebron_data.groupby('EVENT_TYPE')\nmade = grouped.get_group('Made Shot')\nmiss = grouped.get_group('Missed Shot')\nax.scatter(miss['LOC_X'],miss['LOC_Y'],label='Miss',marker='x',color='tab:orange',s=30)\nax.scatter(made['LOC_X'],made['LOC_Y'],label='Made',color='none',edgecolor='tab:blue',linewidths=1,s=30)\nplt.ylim(422.5, -47.5)\nplt.xlim(-250,250)\nplt.title('Lebron James Shot Charts - 2023-24 Season')\nax.xaxis.set_tick_params(labelbottom=False)\nax.yaxis.set_tick_params(labelleft=False)\nax.set_xticks([])\nax.set_yticks([])\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n(Source: Tjortjoglou (2024))\n\n\n\n\nTjortjoglou, S. (2024). NBA shot charts with python. http://savvastjortjoglou.com/nba-shot-sharts.html",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Advanced Examples</span>"
+    ]
+  },
+  {
+    "objectID": "animation.html",
+    "href": "animation.html",
+    "title": "10  Animation with Matplotlib",
+    "section": "",
+    "text": "10.0.1 Animating Plots\nAnimating plots is also possible with matplotlib. Animated maps and plots are valuable for showing changes over time or across locations, making trends and patterns easier to see. They’re useful in fields like public health, where animated maps can show how a disease spreads, or in economics, where plots can track market trends. Environmental scientists also use animated weather maps to illustrate seasonal shifts. These visuals make complex data clearer and help in understanding and decision-making.\nThe first example and background information was pulled from !(Into to Data Science - Fall 2024)[https://statds.github.io/ids-f24/visualization.html#animating-plots-and-maps].",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Animation with Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "animation.html#coin-toss-example",
+    "href": "animation.html#coin-toss-example",
+    "title": "10  Animation with Matplotlib",
+    "section": "10.1 Coin Toss Example",
+    "text": "10.1 Coin Toss Example\nLet’s create a line plot to show how the proportion of heads in coin tosses changes as the number of tosses increases.\n\nimport random\nimport matplotlib.pyplot as plt\n\nrandom.seed(3255)\n\ndef prob_heads(trials):\n    result = []\n    prop_heads = []\n    for i in range(trials):\n        toss = random.randint(0,1)\n        result.append(toss)\n        prop_heads.append(sum(result)/len(result)) \n    return prop_heads\n\nplt.figure(figsize=(6,3))\nplt.hlines(0.5,0,2500,linestyles='dashed')\nplt.plot(prob_heads(2500),color='tab:red')\nplt.ylim(0,1)\nplt.title(\"Coin Toss\")\nplt.ylabel('Proportion of Heads')\nplt.xlabel('Number of Tosses')\nplt.show()\n\n\n\n\n\n\n\n\n\n10.1.1 Coin Toss Animtion\nUsing FuncAnimation, we can animate the coin toss plot we previously made.\n\nprop_heads = prob_heads(2500)\n\nframes = range(len(prop_heads))\n\nfig, ax = plt.subplots(figsize=(12,6))\n\ndef update(frame):\n    # Clear previous frame\n    ax.clear()\n\n    # Add title, and labels\n    ax.set_title('Coin Toss')\n    ax.set_ylabel('Proportion of Heads')\n    ax.set_xlabel('Number of Tosses')\n    ax.set_ylim(0,1)\n\n    # Plot data\n    ax.hlines(0.5,0,frame+1,linestyles='dashed')\n    ax.plot(range(1,frame+1),prop_heads[:frame],color='tab:red')\n\n\nanim = FuncAnimation(fig,update,frames=frames,repeat=False)\n\nanim.save('coin_toss.gif',writer='Pillow',fps=50)\n\nplt.show()\n\n\n\n\n\n\n\n10.1.2 A Step Further - Coin Toss Animation\nWe can take this a step further by labeling the current proportion value for each frame.\nprop_heads = prob_heads(2500)\n\nframes = range(len(prop_heads))\n\nfig, ax = plt.subplots(figsize=(12,6))\n\ndef update(frame):\n    ax.clear()\n    ax.set_title('Coin Toss')\n    ax.set_ylabel('Proportion of Heads')\n    ax.set_xlabel('Number of Tosses')\n    ax.hlines(0.5,0,frame+1,linestyles='dashed')\n    ax.set_ylim(0,1)\n\n    # Add text\n    ax.text(frame+1,prop_heads[frame]*1.05,f'{prop_heads[frame]:.3f}',weight='bold')\n\n    ax.plot(range(1,frame+1),prop_heads[:frame],color='tab:red')\n\n\nanim = FuncAnimation(fig,update,frames=frames)\n\n\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Animation with Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "animation.html#bar-chart-animation",
+    "href": "animation.html#bar-chart-animation",
+    "title": "10  Animation with Matplotlib",
+    "section": "10.2 Bar Chart Animation",
+    "text": "10.2 Bar Chart Animation\nLet’s animate a bar chart of the cummalitive points scored by the top ten NBA players over the course of a season. Here I am using plt.barh to create a horizontal bar chart.\n\nimport pandas as pd\nfrom nba_api.stats.endpoints import leaguegamelog\nfrom matplotlib.animation import FuncAnimation\nimport matplotlib.pyplot as plt\n\nplt.style.use('dark_background')\n# Download all games\ngames = leaguegamelog.LeagueGameLog(season='2023-24',\n season_type_all_star='Regular Season', timeout=60, \n player_or_team_abbreviation='P').get_data_frames()[0]\n\n# Prepare the data\ngames['GAME_DATE'] = pd.to_datetime(games['GAME_DATE'])\n\n# We want PLAYER_NAME, GAME_DATE, PTS\ndf = games[['PLAYER_NAME', 'GAME_DATE', 'PTS']]\n\n# Step 3: Sort by date\ndf = df.sort_values('GAME_DATE')\n\n# Cumulative points per player over time\ndf['CUM_PTS'] = df.groupby('PLAYER_NAME')['PTS'].cumsum()\n\n# Get top ten players\ntop_players = df.groupby('PLAYER_NAME')['PTS'].sum().sort_values(\n    ascending=False).head(10).index\ndf = df[df['PLAYER_NAME'].isin(top_players)]\n\n\nplt.rcParams['font.weight'] = 'bold'\n\nfig, ax = plt.subplots(figsize=(12,8))\n\ndef func(x):\n    ax.clear()\n\n    data = df[df['GAME_DATE']&lt;=x]\n    data = data.groupby('PLAYER_NAME')\n    players = data.groups.keys()\n    \n    plot_df = pd.DataFrame(index=players)\n    plot_df['PTS']= [data.get_group(x)['CUM_PTS'].max() for x in players]\n    plot_df = plot_df.sort_values('PTS')\n    \n    names = ['\\n'.join(i.split(' ')) for i in plot_df.index.to_list()]\n\n    hbars = ax.barh(names, plot_df['PTS'])\n\n    ax.bar_label(hbars,plot_df['PTS'])\n    \n    ax.text(0.98,0.05,f'Date: {x.strftime('%B %d, %Y')}',transform=ax.transAxes, \n            weight='bold',fontsize=15, color='white',ha='right',va='bottom')\n\n    ax.set_title('Cummalitive Points Scored by Top Players - 2023-24 NBA Season',weight='bold')\n    ax.set_xlabel('Points',weight='bold')\n    \n    \n\nanim = FuncAnimation(fig,func,frames=df['GAME_DATE'])\n\nanim.save('animation.gif',writer='Pillow',fps=15)",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Animation with Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "animation.html#saving-your-animation",
+    "href": "animation.html#saving-your-animation",
+    "title": "10  Animation with Matplotlib",
+    "section": "10.3 Saving your Animation",
+    "text": "10.3 Saving your Animation\n\n10.3.1 GIF\nTo save your animation as a GIF:\n\nWriter: Pillow\nCommand: Use anim.save() with the writer='Pillow' option.\n\npip install pillow # pip users\nconda install -c conda-forge pillow # conda users\nExample:\nanim.save('animation.gif', writer='Pillow', fps=30, dpi=200)\n\n\n10.3.2 MP4\nTo save your animation as MP4:\n\nWriter: ffmpeg\nCommand: Use anim.save() with the writer='ffmpeg' option.\n\nconda install -c conda-forge ffmpeg # conda users\nPip Users:\n\nDownload from ffmeg.org\nExtract the folder\nAdd the bins folder path to your system variables.\n\nExample:\nanim.save('animation.mp4', writer='ffmpeg', fps=30, dpi=300)\n\n\n\n\nHunter, J. D., & Matplotlib Development Team, the. (2023). Matplotlib.animation.FuncAnimation. https://matplotlib.org/stable/api/_as_gen/matplotlib.animation.FuncAnimation.html",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Animation with Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Biography.com Editors. (n.d.). Aaron judge biography. https://www.biography.com/athletes/a86222233/aaron-judge\n\n\nErgast. (2024). Ergast motor racing data API. https://ergast.com/mrd/\n\n\nFastF1 Development Team. (2024). FastF1 documentation. https://docs.fastf1.dev/index.html\n\n\nFédération Internationale de l’Automobile (FIA). (2024). 2025 FIA\nformula one world championship. https://www.fia.com/events/fia-formula-one-world-championship/season-2025/2025-fia-formula-one-world-championship\n\n\nHunter, J. D., & Matplotlib Development Team, the. (2023).\nMatplotlib.animation.FuncAnimation. https://matplotlib.org/stable/api/_as_gen/matplotlib.animation.FuncAnimation.html\n\n\nInternational Forum of Visual Practitioners. (n.d.). Why our brain\nloves pictures. https://ifvp.org/content/why-our-brain-loves-pictures\n\n\nJohns Hopkins University. (n.d.). COVID-19 dashboard by the center\nfor systems science and engineering (CSSE). https://coronavirus.jhu.edu/map.html\n\n\nMatplotlib Development Team. (2024). Matplotlib: Visualization with\npython. https://matplotlib.org/stable/index.html\n\n\nMLB Advanced Media. (2024). Statcast search. https://baseballsavant.mlb.com/statcast_search\n\n\nPlotly Technologies Inc. (n.d.). Plotly python graphing\nlibrary. https://plotly.com/python/\n\n\nPlotnine Developers. (n.d.). Plotnine: A grammar of graphics for\npython. https://plotnine.org/\n\n\nPrinceton Alumni Weekly. (n.d.). John d. Hunter ’90 memorial.\nhttps://paw.princeton.edu/memorial/john-d-hunter-90\n\n\nQuickStart. (2024). Data analytics and visualization:\nRevolutionizing sports. https://www.quickstart.com/blog/data-science/data-analytics-and-visualization-revolutionizing-sports/\n\n\nSeaborn Development Team. (2024). Seaborn: Statistical data\nvisualization. https://seaborn.pydata.org/\n\n\nSportsDataverse. (2024). SportyPy: Sports data analysis in\npython. https://sportypy.sportsdataverse.org/\n\n\nTjortjoglou, S. (2024). NBA shot charts with python. http://savvastjortjoglou.com/nba-shot-sharts.html",
+    "crumbs": [
+      "References"
+    ]
+  }
+]
