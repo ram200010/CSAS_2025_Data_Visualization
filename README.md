@@ -12,6 +12,8 @@ Workshop Leader: [Rahul Manna](https://www.linkedin.com/in/rahul-manna-544590346
 
 Visualizing data, particularly in sports analytics, provides valuable insights for informed decision-making, reveals underlying patterns in the data, and enhances communication among stakeholders. Leveraging Python’s versatility and powerful data visualization libraries enables the creation of well-crafted visual narratives across diverse domains. Matplotlib, Python's most popular visualization package, offers extensive customization options and precise control, making it a preferred tool for crafting detailed and impactful visualizations. This workshop will introduce Matplotlib’s robust plotting capabilities, showcase practical examples of data visualizations in baseball and basketball, and equip participants with versatile techniques applicable across any domain.
 
+<br/>
+
 ## Prerequisites
 
 
@@ -20,6 +22,9 @@ Previous experience with python is not required but recommended.
 Please bring your laptop if you'd like to follow along with the demo and setup with the steps mentions bellow.
 
 Recommended: Familiarity with Python and Google Colaborate/Jupyter Notebooks.
+
+<br/>
+
 
 ## Follow Along During Demo
 
@@ -53,6 +58,7 @@ We will be using Google Colaborate for a code demo. Participants can choose to f
 
 *Note: If you have Visual Studio Code installed, you can install the **Jupyter** extension and open the `demo.ipynb`.*
 
+<br/>
 
 ## Website
 
@@ -70,6 +76,8 @@ Rahul Manna is a junior pursuing a dual degree in Statistical Data Science and M
 
 Data used in this workshop is obtained from Baseball Savant and NBA API with the `pybaseball` and `nba_api` packages.
 
+<br/>
+
 ## References
 
-Available at [refs.bib](https://github.com/ram200010/CSAS_2025_Data_Visualization/blob/main/refs.bib)
+Available at [here](https://ram200010.github.io/CSAS_2025_Data_Visualization/references.html)
