@@ -914,6 +914,11 @@ plt.show()
 (Source: @tjortjoglou_nba_shot_charts) 
 :::
 
+## Further Reading
+
+
+- Website with these and more examples - [ram200010.github.io/CSAS_2025_Data_Visualization/](https://ram200010.github.io/CSAS_2025_Data_Visualization/).
+- [Matplotlib Documentation](https://matplotlib.org/) and cheatsheets. 
 
 
 
