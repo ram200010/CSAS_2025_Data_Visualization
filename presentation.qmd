@@ -3,7 +3,7 @@ title: Introduction to Data Visualization
 subtitle: Connecticut Sports Analystics Symposium 2025
 author: Rahul Manna
 date: 11 April 2025
-date-format: "MMMM D, YYYY, 3:40-4:50"
+date-format: "MMMM D, YYYY, 4:05-5:15"
 institute: Department of Statistics | University of Connecticut
 format:
     revealjs:
@@ -300,22 +300,21 @@ $$ f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-\mu)^2}{2\sigma^2}} = \frac{1}
 import matplotlib.pyplot as plt
 import numpy as np
 
-def stand_norm(x):
-    return 1/np.sqrt(2*np.pi)*np.exp(-x**2/2)
+def stand_norm(z):
+    return 1/np.sqrt(2*np.pi)*np.exp(-z**2/2)
 
-x = np.linspace(-4,4,1000) # range of x values in plot
+z = np.linspace(-4,4,1000) # range of x values in plot
 
 plt.figure(figsize=(6,4))
-plt.plot(x,stand_norm(x),label='$N(\mu=0,\sigma=1)$')
+plt.plot(z,stand_norm(z),label=r'$N(\mu=0,\sigma=1)$')
 plt.title('Standard Normal Distribution')
-plt.xlabel('x')
+plt.xlabel('z')
 plt.ylabel('Probability Density')
 plt.legend()
 
 
-x1 = np.linspace(1,4,1000)
-plt.fill_between(x1,0,stand_norm(x1),alpha=0.5)
-
+z1 = np.linspace(1,4,1000)
+plt.fill_between(z1,0,stand_norm(z1),alpha=0.5)
 plt.show()
 ```
 
@@ -328,19 +327,20 @@ plt.show()
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(-4,4,1000) # range of x values in plot
+def stand_norm(z):
+    return 1/np.sqrt(2*np.pi)*np.exp(-z**2/2)
 
-def stand_norm(x):
-    return 1/np.sqrt(2*np.pi)*np.exp(-x**2/2)
+z = np.linspace(-4,4,1000) # range of x values in plot
 
-plt.plot(x,stand_norm(x),label='$N(\mu=0,\sigma=1)$')
+plt.plot(z,stand_norm(z),label=r'$N(\mu=0,\sigma=1)$')
 plt.title('Standard Normal Distribution')
-plt.xlabel('x')
+plt.xlabel('z')
 plt.ylabel('Probability Density')
 plt.legend()
 
-x1 = np.linspace(1,4,1000)
-plt.fill_between(x1,0,stand_norm(x1),alpha=0.5)
+
+z1 = np.linspace(1,4,1000)
+plt.fill_between(z1,0,stand_norm(z1),alpha=0.5)
 
 plt.show()
 ```
@@ -369,33 +369,26 @@ This grid helps analyze pitch effectiveness, swing decisions, and strike zone co
 :::
 ::::
 
-## Baseball Savant   {.smaller} 
-Hosted by MLB, Baseball Savant provides advanced analytics and visualizations using Statcast data.
-
-A go-to resource for analysts, coaches, and fans to explore performance beyond traditional stats.
-
-- Statcast tracking for pitches, batted balls, and player movement  
-- Downloadable CSV files with pitch velocity, spin rate, exit velocity, launch angle, and more  
-
-
-
-(Source: @baseballsavant_statcast_search)
 
 ## Aaron Judge's Statcast Data {.smaller}
 
 :::: {.columns}
-::: {.column}
+::: {.column width=70%}
 Star outfielder for the New York Yankees, known for his power hitting and elite defense.  
 
-**Key Stats & Achievements**  
-
 - 2024 & 2022 American League Most Valuable Player
-- Multiple-time All-Star and Silver Slugger winner  
-- Career HR leader among active Yankees  
 - Known for exceptional exit velocity and plate discipline  
+
+
+**Pybaseball**
+
+- Community-maintained Python package for accessing MLB stats  
+- Provides Statcast data, player statistics, team info, and historical data  
+- Available through the Python package `pybaseball`
+
 :::
-::: {.column .center}
-![Image courtesy of @aaron_judge_bio](images/aaron-judge.avif){width="60%"}
+::: {.column .center width=30%}
+![Image courtesy of @aaron_judge_bio](images/aaron-judge.avif){width="100%"}
 :::
 ::::
 
@@ -914,12 +907,17 @@ plt.show()
 (Source: @tjortjoglou_nba_shot_charts) 
 :::
 
+
+## Animation is also possible
+
+![](https://raw.githubusercontent.com/ram200010/CSAS_2025_Data_Visualization/refs/heads/main/images/animation.gif){fig-align="center"}
+
 ## Further Reading
 
 
 - Website with these and more examples - [ram200010.github.io/CSAS_2025_Data_Visualization/](https://ram200010.github.io/CSAS_2025_Data_Visualization/).
 - [Matplotlib Documentation](https://matplotlib.org/) and cheatsheets. 
-
+- [Seaborn](https://seaborn.pydata.org/)
 
 
 # Thank You!
