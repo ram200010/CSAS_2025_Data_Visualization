@@ -2,7 +2,9 @@
 
 Date: April 11, 2025 
 
-Time: 3:40 - 4:50 
+Time: 4:05 - 5:15
+
+Location: RM 1307, Kline Tower, 219 Prospect Street, New Haven CT 06511
 
 Workshop Leader: [Rahul Manna](https://www.linkedin.com/in/rahul-manna-544590346/)
 
