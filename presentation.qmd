@@ -411,7 +411,9 @@ plt.figure(figsize=(9,7))
 
 plt.scatter(data['plate_x'],data['plate_z'])
 
+plt.axis('equal')
 plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
+
 plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
 plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
 plt.legend(ncols=2)
@@ -439,6 +441,7 @@ plt.figure(figsize=(9,7))
 
 plt.scatter(data['plate_x'],data['plate_z'],c=data['launch_speed'],cmap='plasma')
 plt.colorbar(label='Launch Speed (mph)')
+plt.axis('equal')
 plt.title('Aaron Judge Hit Locations',weight='bold',fontsize=18)
 plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
 plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)
@@ -481,7 +484,7 @@ plt.figure(figsize=(9,7))
 for category, group in data.groupby('in_zone'):
     plt.scatter(group['plate_x'],group['plate_z'],label=category)
 
-
+plt.axis('equal')
 plt.title('Aaron Judge Hit Locations Over Home Plate',weight='bold',fontsize=18)
 plt.xlabel('Horizontal Position (ft.)',weight='bold',fontsize=14)
 plt.ylabel('Vertical Position (ft.)',weight='bold',fontsize=14)

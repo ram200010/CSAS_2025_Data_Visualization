@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 </head>
@@ -344,7 +341,7 @@ div.csl-indent {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>platex <span class="op">=</span> judge_data[<span class="st">'plate_x'</span>]</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>platez <span class="op">=</span> judge_data[<span class="st">'plate_z'</span>]</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>judge_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="9c0fb95b" class="cell" data-execution_count="2">
+<div id="12b3a9f8" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -508,13 +505,13 @@ div.csl-indent {
 <section id="scatter-plot-of-hit-locations" class="level2 scrollable" data-number="6.3">
 <h2 class="scrollable anchored" data-number="6.3" data-anchor-id="scatter-plot-of-hit-locations"><span class="header-section-number">6.3</span> Scatter Plot of Hit Locations</h2>
 <p>Let’s make a scatter plot Judge’s hit locations over the home plate.</p>
-<div id="ee415767" class="cell" data-execution_count="3">
+<div id="ea7a51ef" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">7</span>))</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(platex,platez)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Aaron Judge Hit Locations'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
@@ -531,15 +528,16 @@ div.csl-indent {
 <section id="hit-location-colored-by-exit-velocity" class="level2 scrollable" data-number="6.4">
 <h2 class="scrollable anchored" data-number="6.4" data-anchor-id="hit-location-colored-by-exit-velocity"><span class="header-section-number">6.4</span> Hit Location Colored by Exit Velocity</h2>
 <p>Let’s make a scatter plot Judge’s hit locations over the home plate colored by his exit velocity.</p>
-<div id="405acf47" class="cell" data-execution_count="4">
+<div id="8e5d8582" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">7</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(platex,platez,c<span class="op">=</span>judge_data[<span class="st">'launch_speed'</span>],cmap<span class="op">=</span><span class="st">'plasma'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Launch Speed (mph)'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Aaron Judge Hit Locations'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="fl">1.5</span>,<span class="fl">1.5</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Aaron Judge Hit Locations'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="fl">1.5</span>,<span class="fl">1.5</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -558,7 +556,7 @@ div.csl-indent {
 </figure>
 </div>
 <p>Let’s make a scatter plot Judge’s hit locations over the home plate colered by the zones.</p>
-<div id="370e0f15" class="cell" data-execution_count="5">
+<div id="e236f0fc" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>judge_data[<span class="st">'in_zone'</span>] <span class="op">=</span> judge_data[<span class="st">'zone'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="ss">f'Zone: </span><span class="sc">{</span><span class="bu">str</span>(<span class="bu">int</span>(x))<span class="sc">}</span><span class="ss">'</span> <span class="cf">if</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>) <span class="cf">else</span> <span class="st">'Out of Zone'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">7</span>))</span>
@@ -566,12 +564,13 @@ div.csl-indent {
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> category, group <span class="kw">in</span> judge_data.groupby(<span class="st">'in_zone'</span>):</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    plt.scatter(group[<span class="st">'plate_x'</span>],group[<span class="st">'plate_z'</span>],label<span class="op">=</span>category)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Aaron Judge Hit Locations Over Home Plate'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.legend(ncols<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Aaron Judge Hit Locations Over Home Plate'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.legend(ncols<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -584,28 +583,31 @@ div.csl-indent {
 <section id="kernel-density-estimate---pitch-locations" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="kernel-density-estimate---pitch-locations"><span class="header-section-number">6.6</span> Kernel Density Estimate - Pitch Locations</h2>
 <p>In the plot above, it is difficult to visualize where majority of the balls are landing. A 2D Kernel Density Estimate (KDE) plot visualizes the probability density of two continuous variables by smoothing data points using a kernel function, typically represented with contour lines or a heatmap. In Seaborn, a Python data visualization library, this can be easily created using <code>sns.kdeplot()</code>, helping to identify clusters, relationships, and density patterns in bivariate data.</p>
-<div id="db4bad68" class="cell" data-execution_count="6">
+<div id="cca1f5e6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">7</span>))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>judge_data,x<span class="op">=</span><span class="st">'plate_x'</span>,y<span class="op">=</span><span class="st">'plate_z'</span>,cmap<span class="op">=</span><span class="st">"Reds"</span>, </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    fill<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    thresh<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Aaron Judge Pitch Positions Over Home Plate'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>judge_data,x<span class="op">=</span><span class="st">'plate_x'</span>,y<span class="op">=</span><span class="st">'plate_z'</span>,cmap<span class="op">=</span><span class="st">"Reds"</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    fill<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    thresh<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'scaled'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Aaron Judge Pitch Positions Over Home Plate'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="example2_files/figure-html/cell-7-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="742" height="609"></p>
+<p><img src="example2_files/figure-html/cell-7-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="630" height="609"></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="adding-a-strike-zone-box" class="level3" data-number="6.6.1">
 <h3 data-number="6.6.1" class="anchored" data-anchor-id="adding-a-strike-zone-box"><span class="header-section-number">6.6.1</span> Adding a Strike Zone Box</h3>
-<div id="9ded6dc2" class="cell" data-execution_count="7">
+<div id="605d9b55" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> patches</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">7</span>))</span>
@@ -618,27 +620,28 @@ div.csl-indent {
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Aaron Judge Pitch Positions Over Home Plate'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Horizontal Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Vertical Position (ft.)'</span>,weight<span class="op">=</span><span class="st">'bold'</span>,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'scaled'</span>)</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>in_zone_data <span class="op">=</span> judge_data[judge_data[<span class="st">'in_zone'</span>] <span class="op">!=</span> <span class="st">'Out of Zone'</span>]</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>min_x <span class="op">=</span> in_zone_data[<span class="st">'plate_x'</span>].<span class="bu">min</span>()</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>max_x <span class="op">=</span> in_zone_data[<span class="st">'plate_x'</span>].<span class="bu">max</span>()</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>min_z <span class="op">=</span> in_zone_data[<span class="st">'plate_z'</span>].<span class="bu">min</span>()</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>max_z <span class="op">=</span> in_zone_data[<span class="st">'plate_z'</span>].<span class="bu">max</span>()</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>rect <span class="op">=</span> patches.Rectangle((min_x,min_z),max_x<span class="op">-</span>min_x,max_z<span class="op">-</span>min_z,facecolor<span class="op">=</span><span class="st">'none'</span>,edgecolor<span class="op">=</span><span class="st">'black'</span>,linestyle<span class="op">=</span><span class="st">'--'</span>,linewidth<span class="op">=</span><span class="dv">3</span>,label<span class="op">=</span><span class="st">'Strike Zone'</span>)</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>ax.add_patch(rect)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>in_zone_data <span class="op">=</span> judge_data[judge_data[<span class="st">'in_zone'</span>] <span class="op">!=</span> <span class="st">'Out of Zone'</span>]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>min_x <span class="op">=</span> in_zone_data[<span class="st">'plate_x'</span>].<span class="bu">min</span>()</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>max_x <span class="op">=</span> in_zone_data[<span class="st">'plate_x'</span>].<span class="bu">max</span>()</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>min_z <span class="op">=</span> in_zone_data[<span class="st">'plate_z'</span>].<span class="bu">min</span>()</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>max_z <span class="op">=</span> in_zone_data[<span class="st">'plate_z'</span>].<span class="bu">max</span>()</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>rect <span class="op">=</span> patches.Rectangle((min_x,min_z),max_x<span class="op">-</span>min_x,max_z<span class="op">-</span>min_z,facecolor<span class="op">=</span><span class="st">'none'</span>,edgecolor<span class="op">=</span><span class="st">'black'</span>,linestyle<span class="op">=</span><span class="st">'--'</span>,linewidth<span class="op">=</span><span class="dv">2</span>,label<span class="op">=</span><span class="st">'Strike Zone'</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>ax.add_patch(rect)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="example2_files/figure-html/cell-8-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="742" height="609"></p>
+<p><img src="example2_files/figure-html/cell-8-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="630" height="609"></p>
 </figure>
 </div>
 </div>
